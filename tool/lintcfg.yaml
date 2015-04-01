@@ -17,4 +17,4 @@ rules:
 #    package_names:
 #      enabled: false # longer form of package_names: false
   lint:
-#   unnecessary_getters: false # TODO(zoechi) remove when #35 is fixed
+    constant_identifier_names: false # I don't think it makes sense to change the HttpStatus items to camelCase.

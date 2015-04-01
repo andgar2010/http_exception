@@ -1,6 +1,6 @@
 library http_exception;
 
-import 'dart:io' show HttpStatus;
+import 'http_status.dart';
 
 /// A bas class for specific HTTP exception classes.
 /// [Map] data can be provided to add additional information as the response
