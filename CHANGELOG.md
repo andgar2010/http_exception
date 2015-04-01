@@ -1,4 +1,4 @@
-## 0.1.1
+## 0.1.0
 
-* added optional detail argument to exception constructors to allow additional
-information to be added the the message
+* created this package consisting only of the exception classes from the
+shelf_exception_response package.
