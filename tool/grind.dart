@@ -1,7 +1,7 @@
 library http_exception.tool.grind;
 
-export 'package:bwu_utils_dev/grinder/default_tasks.dart' hide main;
-import 'package:bwu_utils_dev/grinder/default_tasks.dart'
+export 'package:bwu_grinder_tasks/bwu_grinder_tasks.dart' hide main;
+import 'package:bwu_grinder_tasks/bwu_grinder_tasks.dart'
     show grind, coverageTask, testTask;
 
 main(List<String> args) {
