@@ -1,5 +1,5 @@
-## UNRELEASED
-- use bwu_utils_dev Grinder default tasks
+## 0.2.0
+- migrate to Dart 2
 - enable Travis CI
 - add badges
 
