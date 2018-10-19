@@ -1,12 +1,22 @@
-library http_exception.tool.grind;
+import 'dart:io';
 
-export 'package:bwu_grinder_tasks/bwu_grinder_tasks.dart' hide main;
-import 'package:bwu_grinder_tasks/bwu_grinder_tasks.dart'
-    show grind, coverageTask, testTask;
+import 'package:grinder/grinder.dart';
 
-main(List<String> args) {
-  // this package doesn't have tests
-  testTask = ([_]) {};
-  coverageTask = () {};
-  grind(args);
+void main(List<String> args) => grind(args);
+
+final Set<Directory> sourceDirs = [
+  'lib',
+  'test',
+  'tool',
+].map((path) => Directory(path)).toSet();
+
+@Task('Travis checks')
+void travis() {
+  if (DartFmt.dryRun(sourceDirs)) {
+    throw Exception('Source code not formatted');
+  }
+
+  Analyzer.analyze(sourceDirs);
+
+  TestRunner().test();
 }
