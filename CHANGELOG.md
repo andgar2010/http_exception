@@ -1,3 +1,6 @@
+## 0.2.1
+- `toMap()` should not throw when `data` is `null`
+
 ## 0.2.0
 - migrate to Dart 2
 - enable Travis CI

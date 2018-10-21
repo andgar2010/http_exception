@@ -15,8 +15,10 @@ class HttpException implements Exception {
       this.message = 'Internal Server Error',
       this.data]);
 
-  Map<String, dynamic> toMap() =>
-      <String, dynamic>{'status': status, 'message': message}..addAll(data);
+  Map<String, dynamic> toMap() => <String, dynamic>{
+        'status': status,
+        'message': message
+      }..addAll(data ?? <String, dynamic>{});
 
   @override
   String toString() => 'Status $status: $message';

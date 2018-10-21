@@ -17,4 +17,17 @@ void main() {
     expect(map['foo'], 'foo value');
     expect(map['bar'], 'bar value');
   });
+
+  test('toMap with null as data', () {
+    const badRequest = BadRequestException(
+      null,
+      'Exception Test',
+    );
+
+    final map = badRequest.toMap();
+
+    expect(map.length, 2);
+    expect(map['status'], HttpStatus.BAD_REQUEST);
+    expect(map['message'], endsWith('Exception Test'));
+  });
 }
