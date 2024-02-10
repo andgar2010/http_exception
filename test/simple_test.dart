@@ -11,8 +11,8 @@ void main() {
 
     final map = badRequest.toMap();
 
-    expect(map.length, 4);
-    expect(map['status'], HttpStatusCode.badRequest);
+    expect(map.length, 5);
+    expect(map['httpStatusCode'], HttpStatusCode.badRequest);
     expect(map['message'], endsWith('Exception Test'));
     expect(map['foo'], 'foo value');
     expect(map['bar'], 'bar value');
@@ -26,8 +26,8 @@ void main() {
 
     final map = badRequest.toMap();
 
-    expect(map.length, 2);
-    expect(map['status'], HttpStatusCode.badRequest);
+    expect(map.length, 3);
+    expect(map['httpStatusCode'], HttpStatusCode.badRequest);
     expect(map['message'], endsWith('Exception Test'));
   });
 }
