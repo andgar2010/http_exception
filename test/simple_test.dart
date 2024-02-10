@@ -1,5 +1,5 @@
 import 'package:http_exception/http_exception.dart';
-import 'package:http_exception/http_status.dart';
+import 'package:http_status/http_status.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -12,7 +12,7 @@ void main() {
     final map = badRequest.toMap();
 
     expect(map.length, 4);
-    expect(map['status'], HttpStatus.BAD_REQUEST);
+    expect(map['status'], HttpStatusCode.badRequest);
     expect(map['message'], endsWith('Exception Test'));
     expect(map['foo'], 'foo value');
     expect(map['bar'], 'bar value');
@@ -27,7 +27,7 @@ void main() {
     final map = badRequest.toMap();
 
     expect(map.length, 2);
-    expect(map['status'], HttpStatus.BAD_REQUEST);
+    expect(map['status'], HttpStatusCode.badRequest);
     expect(map['message'], endsWith('Exception Test'));
   });
 }

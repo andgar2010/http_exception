@@ -1,6 +1,6 @@
 library http_exception;
 
-import 'http_status.dart';
+import 'package:http_status/http_status.dart';
 
 /// A bas class for specific HTTP exception classes.
 /// [Map] data can be provided to add additional information as the response
@@ -11,7 +11,7 @@ class HttpException implements Exception {
   final Map<String, dynamic>? data;
 
   const HttpException(
-      [this.status = HttpStatus.INTERNAL_SERVER_ERROR,
+      [this.status = HttpStatusCode.internalServerError,
       this.message = 'Internal Server Error',
       this.data]);
 
@@ -27,14 +27,14 @@ class HttpException implements Exception {
 /// 400 Bad Request
 class BadRequestException extends HttpException {
   const BadRequestException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.BAD_REQUEST,
+      : super(HttpStatusCode.badRequest,
             'Bad Request${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 401 Unauthorized
 class UnauthorizedException extends HttpException {
   const UnauthorizedException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.UNAUTHORIZED,
+      : super(HttpStatusCode.unauthorized,
             'Unauthorized${detail != '' ? ': ' : ''}$detail', data);
 }
 
@@ -42,56 +42,57 @@ class UnauthorizedException extends HttpException {
 class PaymentRequiredException extends HttpException {
   const PaymentRequiredException(
       [Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.PAYMENT_REQUIRED,
+      : super(HttpStatusCode.paymentRequired,
             'Payment Required${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 403 Forbidden
 class ForbiddenException extends HttpException {
   const ForbiddenException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.FORBIDDEN,
+      : super(HttpStatusCode.forbidden,
             'Forbidden${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 404 Not Found
 class NotFoundException extends HttpException {
   const NotFoundException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.NOT_FOUND,
+      : super(HttpStatusCode.notFound,
             'Not Found${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 405 Method Not Allowed
 class MethodNotAllowed extends HttpException {
   const MethodNotAllowed([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.METHOD_NOT_ALLOWED,
+      : super(HttpStatusCode.methodNotAllowed,
             'Method Not Allowed${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 406 Not Acceptable
 class NotAcceptableException extends HttpException {
   const NotAcceptableException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.NOT_ACCEPTABLE,
+      : super(HttpStatusCode.notAcceptable,
             'Not Acceptable${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 409 Conflict
 class ConflictException extends HttpException {
   const ConflictException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.CONFLICT, 'Conflict${detail != '' ? ': ' : ''}$detail',
-            data);
+      : super(HttpStatusCode.conflict,
+            'Conflict${detail != '' ? ': ' : ''}$detail', data);
 }
 
 /// 410 Gone
 class GoneException extends HttpException {
   const GoneException([Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.GONE, 'Gone${detail != '' ? ': ' : ''}$detail', data);
+      : super(HttpStatusCode.gone, 'Gone${detail != '' ? ': ' : ''}$detail',
+            data);
 }
 
 /// 412 Precondition Failed
 class PreconditionFailedException extends HttpException {
   const PreconditionFailedException(
       [Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.PRECONDITION_FAILED,
+      : super(HttpStatusCode.preconditionFailed,
             'Precondition Failed${detail != '' ? ': ' : ''}$detail', data);
 }
 
@@ -99,7 +100,7 @@ class PreconditionFailedException extends HttpException {
 class UnsupportedMediaTypeException extends HttpException {
   const UnsupportedMediaTypeException(
       [Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.UNSUPPORTED_MEDIA_TYPE,
+      : super(HttpStatusCode.unsupportedMediaType,
             'Unsupported Media Type${detail != '' ? ': ' : ''}$detail', data);
 }
 
@@ -114,7 +115,7 @@ class TooManyRequestsException extends HttpException {
 class NotImplementedException extends HttpException {
   const NotImplementedException(
       [Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.NOT_IMPLEMENTED,
+      : super(HttpStatusCode.notImplemented,
             'Not Implemented${detail != '' ? ': ' : ''}$detail', data);
 }
 
@@ -122,6 +123,6 @@ class NotImplementedException extends HttpException {
 class ServiceUnavailableException extends HttpException {
   const ServiceUnavailableException(
       [Map<String, dynamic>? data, String detail = ''])
-      : super(HttpStatus.SERVICE_UNAVAILABLE,
+      : super(HttpStatusCode.serviceUnavailable,
             'Service Unavailable${detail != '' ? ': ' : ''}$detail', data);
 }
