@@ -8,9 +8,9 @@ class NotImplementedException extends HttpException {
     Map<String, dynamic>? data,
     String detail = '',
   ]) : super(
-          HttpStatusCode.notImplemented,
-          'Not Implemented${detail != '' ? ': ' : ''}$detail',
-          data,
+          httpStatus: HttpStatus.notImplemented,
+          message: 'Not Implemented${detail != '' ? ': ' : ''}$detail',
+          data: data,
         );
 }
 
@@ -20,8 +20,8 @@ class ServiceUnavailableException extends HttpException {
     Map<String, dynamic>? data,
     String detail = '',
   ]) : super(
-          HttpStatusCode.serviceUnavailable,
-          'Service Unavailable${detail != '' ? ': ' : ''}$detail',
-          data,
+          httpStatus: HttpStatus.serviceUnavailable,
+          message: 'Service Unavailable${detail != '' ? ': ' : ''}$detail',
+          data: data,
         );
 }
