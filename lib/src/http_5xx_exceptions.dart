@@ -14,12 +14,14 @@ import '../http_exception.dart';
 /// {@endtemplate}
 class InternalServerErrorHttpException extends HttpException {
   const InternalServerErrorHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.internalServerError,
           message: 'Internal Server Error${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -37,12 +39,14 @@ class NotImplementedException extends NotImplementedHttpException {
 /// {@endtemplate}
 class NotImplementedHttpException extends HttpException {
   const NotImplementedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.notImplemented,
           message: 'Not Implemented${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -51,12 +55,14 @@ class NotImplementedHttpException extends HttpException {
 /// {@endtemplate}
 class BadGatewayHttpException extends HttpException {
   const BadGatewayHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.badGateway,
           message: 'Bad Gateway${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -74,12 +80,14 @@ class ServiceUnavailableException extends ServiceUnavailableHttpException {
 /// {@endtemplate}
 class ServiceUnavailableHttpException extends HttpException {
   const ServiceUnavailableHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.serviceUnavailable,
           message: 'Service Unavailable${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -88,12 +96,14 @@ class ServiceUnavailableHttpException extends HttpException {
 /// {@endtemplate}
 class GatewayTimeoutHttpException extends HttpException {
   const GatewayTimeoutHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.gatewayTimeout,
           message: 'Gateway Timeout${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -102,13 +112,15 @@ class GatewayTimeoutHttpException extends HttpException {
 /// {@endtemplate}
 class HttpVersionNotSupportedHttpException extends HttpException {
   const HttpVersionNotSupportedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.httpVersionNotSupported,
           message:
               'Http Version Not Supported${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -117,12 +129,14 @@ class HttpVersionNotSupportedHttpException extends HttpException {
 /// {@endtemplate}
 class InsufficientStorageHttpException extends HttpException {
   const InsufficientStorageHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.insufficientStorage,
           message: 'Insufficient Storage${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -131,12 +145,14 @@ class InsufficientStorageHttpException extends HttpException {
 /// {@endtemplate}
 class NetworkAuthenticationRequiredHttpException extends HttpException {
   const NetworkAuthenticationRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.networkAuthenticationRequired,
           message:
               'Network Authentication Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }

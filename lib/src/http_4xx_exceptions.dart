@@ -21,12 +21,14 @@ class BadRequestException extends BadRequestHttpException {
 /// {@endtemplate}
 class BadRequestHttpException extends HttpException {
   const BadRequestHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.badRequest,
           message: 'Bad Request${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -42,12 +44,14 @@ class UnauthorizedException extends UnauthorizedHttpException {
 /// {@endtemplate}
 class UnauthorizedHttpException extends HttpException {
   const UnauthorizedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.unauthorized,
           message: 'Unauthorized${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -65,12 +69,14 @@ class PaymentRequiredException extends PaymentRequiredHttpException {
 /// {@endtemplate}
 class PaymentRequiredHttpException extends HttpException {
   const PaymentRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.paymentRequired,
           message: 'Payment Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -86,12 +92,14 @@ class ForbiddenException extends ForbiddenHttpException {
 /// {@endtemplate}
 class ForbiddenHttpException extends HttpException {
   const ForbiddenHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.forbidden,
           message: 'Forbidden${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -107,12 +115,14 @@ class NotFoundException extends NotFoundHttpException {
 /// {@endtemplate}
 class NotFoundHttpException extends HttpException {
   const NotFoundHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.notFound,
           message: 'Not Found${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -130,12 +140,14 @@ class MethodNotAllowedException extends MethodNotAllowedHttpException {
 /// {@endtemplate}
 class MethodNotAllowedHttpException extends HttpException {
   const MethodNotAllowedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.methodNotAllowed,
           message: 'Method Not Allowed${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -151,12 +163,14 @@ class NotAcceptableException extends NotAcceptableHttpException {
 /// {@endtemplate}
 class NotAcceptableHttpException extends HttpException {
   const NotAcceptableHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.notAcceptable,
           message: 'Not Acceptable${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -175,13 +189,15 @@ class ProxyAuthenticationRequiredException
 /// {@endtemplate}
 class ProxyAuthenticationRequiredHttpException extends HttpException {
   const ProxyAuthenticationRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.proxyAuthenticationRequired,
           message:
               'Proxy Authentication Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -199,12 +215,14 @@ class RequestTimeoutException extends RequestTimeoutHttpException {
 /// {@endtemplate}
 class RequestTimeoutHttpException extends HttpException {
   const RequestTimeoutHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.requestTimeout,
           message: 'Request Timeout${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -220,12 +238,14 @@ class ConflictException extends ConflictHttpException {
 /// {@endtemplate}
 class ConflictHttpException extends HttpException {
   const ConflictHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.conflict,
           message: 'Conflict${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -241,12 +261,14 @@ class GoneException extends GoneHttpException {
 /// {@endtemplate}
 class GoneHttpException extends HttpException {
   const GoneHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.gone,
           message: 'Gone${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -264,12 +286,14 @@ class LengthRequiredException extends LengthRequiredHttpException {
 /// {@endtemplate}
 class LengthRequiredHttpException extends HttpException {
   const LengthRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.lengthRequired,
           message: 'Length Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -287,12 +311,14 @@ class PreconditionFailedException extends PreconditionFailedHttpException {
 /// {@endtemplate}
 class PreconditionFailedHttpException extends HttpException {
   const PreconditionFailedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.preconditionFailed,
           message: 'Precondition Failed${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -311,12 +337,14 @@ class RequestEntityTooLargeException
 /// {@endtemplate}
 class RequestEntityTooLargeHttpException extends HttpException {
   const RequestEntityTooLargeHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.requestEntityTooLarge,
           message: 'Request Entity Too Long${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -334,12 +362,14 @@ class RequestUriTooLongException extends RequestUriTooLongHttpException {
 /// {@endtemplate}
 class RequestUriTooLongHttpException extends HttpException {
   const RequestUriTooLongHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.requestUriTooLong,
           message: 'Request Uri Too Long${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -357,12 +387,14 @@ class UnsupportedMediaTypeException extends UnsupportedMediaTypeHttpException {
 /// {@endtemplate}
 class UnsupportedMediaTypeHttpException extends HttpException {
   const UnsupportedMediaTypeHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.unsupportedMediaType,
           message: 'Unsupported Media Type${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -381,13 +413,15 @@ class RequestedRangeNotSatisfiableException
 /// {@endtemplate}
 class RequestedRangeNotSatisfiableHttpException extends HttpException {
   const RequestedRangeNotSatisfiableHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.requestedRangeNotSatisfiable,
           message:
               'Requested Range Not Satisfiable${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -405,12 +439,14 @@ class ExpectationFailedException extends ExpectationFailedHttpException {
 /// {@endtemplate}
 class ExpectationFailedHttpException extends HttpException {
   const ExpectationFailedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.expectationFailed,
           message: 'Expectation Failed${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -426,12 +462,14 @@ class ImATeapotException extends ImATeapotHttpException {
 /// {@endtemplate}
 class ImATeapotHttpException extends HttpException {
   const ImATeapotHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.imATeapot,
           message: "I'm A Teapot${detail != '' ? ': ' : ''}$detail",
+          uri: uri,
         );
 }
 
@@ -450,13 +488,15 @@ class InsufficientSpaceOnResourceException
 /// {@endtemplate}
 class InsufficientSpaceOnResourceHttpException extends HttpException {
   const InsufficientSpaceOnResourceHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.insufficientSpaceOnResource,
           message:
               'Insufficient Space On Resource${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -472,12 +512,14 @@ class MethodFailureException extends MethodFailureHttpException {
 /// {@endtemplate}
 class MethodFailureHttpException extends HttpException {
   const MethodFailureHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.methodFailure,
           message: 'Method Failure${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -495,12 +537,14 @@ class MisdirectedRequestException extends MisdirectedRequestHttpException {
 /// {@endtemplate}
 class MisdirectedRequestHttpException extends HttpException {
   const MisdirectedRequestHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.misdirectedRequest,
           message: 'Misdirected Request${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -518,12 +562,14 @@ class UnprocessableEntityException extends UnprocessableEntityHttpException {
 /// {@endtemplate}
 class UnprocessableEntityHttpException extends HttpException {
   const UnprocessableEntityHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.unprocessableEntity,
           message: 'Unprocessable Entity${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -539,12 +585,14 @@ class LockedException extends LockedHttpException {
 /// {@endtemplate}
 class LockedHttpException extends HttpException {
   const LockedHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.locked,
           message: 'Locked${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -562,12 +610,14 @@ class FailedDependencyException extends FailedDependencyHttpException {
 /// {@endtemplate}
 class FailedDependencyHttpException extends HttpException {
   const FailedDependencyHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.failedDependency,
           message: 'Failed Dependency${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -585,12 +635,14 @@ class UpgradeRequiredException extends UpgradeRequiredHttpException {
 /// {@endtemplate}
 class UpgradeRequiredHttpException extends HttpException {
   const UpgradeRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.upgradeRequired,
           message: 'Upgrade Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -608,12 +660,14 @@ class PreconditionRequiredException extends PreconditionRequiredHttpException {
 /// {@endtemplate}
 class PreconditionRequiredHttpException extends HttpException {
   const PreconditionRequiredHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.preconditionRequired,
           message: 'Precondition Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -631,12 +685,14 @@ class TooManyRequestsException extends TooManyRequestsHttpException {
 /// {@endtemplate}
 class TooManyRequestsHttpException extends HttpException {
   const TooManyRequestsHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.tooManyRequests,
           message: 'Too Many Requests${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -655,13 +711,15 @@ class RequestHeaderFieldsTooLargeException
 /// {@endtemplate}
 class RequestHeaderFieldsTooLargeHttpException extends HttpException {
   const RequestHeaderFieldsTooLargeHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.requestHeaderFieldsTooLarge,
           message:
               'Request Header Fields Too Large${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -680,13 +738,15 @@ class ConnectionClosedWithoutResponseException
 /// {@endtemplate}
 class ConnectionClosedWithoutResponseHttpException extends HttpException {
   const ConnectionClosedWithoutResponseHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.connectionClosedWithoutResponse,
           message:
               'Connection Closed Without Response${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -705,13 +765,15 @@ class UnavailableForLegalReasonsException
 /// {@endtemplate}
 class UnavailableForLegalReasonsHttpException extends HttpException {
   const UnavailableForLegalReasonsHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.unavailableForLegalReasons,
           message:
               'Unavailable For Legal Reasons${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
 
@@ -729,11 +791,13 @@ class ClientClosedRequestException extends ClientClosedRequestHttpException {
 /// {@endtemplate}
 class ClientClosedRequestHttpException extends HttpException {
   const ClientClosedRequestHttpException({
-    super.data,
+    Map<String, dynamic>? data,
     String detail = '',
-    super.uri,
+    Uri? uri,
   }) : super(
+          data: data,
           httpStatus: HttpStatus.clientClosedRequest,
           message: 'Client Closed Request${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
         );
 }
