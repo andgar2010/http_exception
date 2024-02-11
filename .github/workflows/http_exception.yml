@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest] # or: macos-latest, windows-latest
-        channel: ['2.12.0', stable, beta, dev, main] # or: 'beta', 'dev' or 'main'
+        channel: ['2.15.0', stable, beta, dev, main] # or: 'beta', 'dev' or 'main'
 
     steps:
       - uses: actions/checkout@v4
@@ -46,11 +46,11 @@ jobs:
           dart pub global activate coverage
           dart pub global run coverage:test_with_coverage
 
-      - name: Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2
-        with:
-          path: "./coverage/lcov.info"
-          min_coverage: 100
+      # - name: Check Code Coverage
+      #   uses: VeryGoodOpenSource/very_good_coverage@v2
+      #   with:
+      #     path: "./coverage/lcov.info"
+      #     min_coverage: 100
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.2.3

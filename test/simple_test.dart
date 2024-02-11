@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'package:http_exception/http_exception.dart';
 import 'package:http_status/http_status.dart';
 import 'package:test/test.dart';
