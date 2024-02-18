@@ -10,7 +10,7 @@ import 'package:http_status/http_status.dart';
 import '../http_exception.dart';
 
 /// {@template 500_internal_server_error_http_exception}
-/// 500 Internal Server Error.
+/// 500 Internal Server Error (Http Exception).
 /// {@endtemplate}
 class InternalServerErrorHttpException extends HttpException {
   const InternalServerErrorHttpException({
@@ -51,7 +51,7 @@ class NotImplementedHttpException extends HttpException {
 }
 
 /// {@template 502_bad_gateway_http_exception}
-/// 502 Bad Gateway.
+/// 502 Bad Gateway (Http Exception).
 /// {@endtemplate}
 class BadGatewayHttpException extends HttpException {
   const BadGatewayHttpException({
@@ -92,7 +92,7 @@ class ServiceUnavailableHttpException extends HttpException {
 }
 
 /// {@template 504_gateway_timeout_http_exception}
-/// 504 Gateway Timeout.
+/// 504 Gateway Timeout (Http Exception).
 /// {@endtemplate}
 class GatewayTimeoutHttpException extends HttpException {
   const GatewayTimeoutHttpException({
@@ -108,7 +108,7 @@ class GatewayTimeoutHttpException extends HttpException {
 }
 
 /// {@template 505_http_version_not_supported_http_exception}
-/// 505 Http Version Not Supported.
+/// 505 Http Version Not Supported (Http Exception).
 /// {@endtemplate}
 class HttpVersionNotSupportedHttpException extends HttpException {
   const HttpVersionNotSupportedHttpException({
@@ -125,7 +125,7 @@ class HttpVersionNotSupportedHttpException extends HttpException {
 }
 
 /// {@template 506_insufficient_storage_http_exception}
-/// 506 Insufficient Storage.
+/// 506 Insufficient Storage (Http Exception).
 /// {@endtemplate}
 class InsufficientStorageHttpException extends HttpException {
   const InsufficientStorageHttpException({
@@ -141,7 +141,7 @@ class InsufficientStorageHttpException extends HttpException {
 }
 
 /// {@template 511_network_authentication_required_http_exception}
-/// 511 Network Authentication Required.
+/// 511 Network Authentication Required (Http Exception).
 /// {@endtemplate}
 class NetworkAuthenticationRequiredHttpException extends HttpException {
   const NetworkAuthenticationRequiredHttpException({
