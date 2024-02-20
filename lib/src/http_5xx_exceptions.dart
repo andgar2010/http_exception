@@ -124,8 +124,24 @@ class HttpVersionNotSupportedHttpException extends HttpException {
         );
 }
 
-/// {@template 506_insufficient_storage_http_exception}
-/// 506 Insufficient Storage (Http Exception).
+/// {@template 506_variant_also_negotiates_http_exception}
+/// 506 Variant Also Negotiates (Http Exception).
+/// {@endtemplate}
+class VariantAlsoNegotiatesHttpException extends HttpException {
+  const VariantAlsoNegotiatesHttpException({
+    Map<String, dynamic>? data,
+    String detail = '',
+    Uri? uri,
+  }) : super(
+          data: data,
+          httpStatus: HttpStatus.variantAlsoNegotiates,
+          message: 'Variant Also Negotiates${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
+        );
+}
+
+/// {@template 507_insufficient_storage_http_exception}
+/// 507 Insufficient Storage (Http Exception).
 /// {@endtemplate}
 class InsufficientStorageHttpException extends HttpException {
   const InsufficientStorageHttpException({
@@ -136,6 +152,38 @@ class InsufficientStorageHttpException extends HttpException {
           data: data,
           httpStatus: HttpStatus.insufficientStorage,
           message: 'Insufficient Storage${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
+        );
+}
+
+/// {@template 508_loop_detected_http_exception}
+/// 508 Loop Detected (Http Exception).
+/// {@endtemplate}
+class LoopDetectedHttpException extends HttpException {
+  const LoopDetectedHttpException({
+    Map<String, dynamic>? data,
+    String detail = '',
+    Uri? uri,
+  }) : super(
+          data: data,
+          httpStatus: HttpStatus.loopDetected,
+          message: 'Loop Detected${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
+        );
+}
+
+/// {@template 510_not_extended_http_exception}
+/// 511 Not Extended (Http Exception).
+/// {@endtemplate}
+class NotExtendedHttpException extends HttpException {
+  const NotExtendedHttpException({
+    Map<String, dynamic>? data,
+    String detail = '',
+    Uri? uri,
+  }) : super(
+          data: data,
+          httpStatus: HttpStatus.notExtended,
+          message: 'Not Extended${detail != '' ? ': ' : ''}$detail',
           uri: uri,
         );
 }
@@ -153,6 +201,23 @@ class NetworkAuthenticationRequiredHttpException extends HttpException {
           httpStatus: HttpStatus.networkAuthenticationRequired,
           message:
               'Network Authentication Required${detail != '' ? ': ' : ''}$detail',
+          uri: uri,
+        );
+}
+
+/// {@template 599_network_connect_timeout_error_http_exception}
+/// 59 Network Authentication Required (Http Exception).
+/// {@endtemplate}
+class NetworkConnectTimeoutErrorHttpException extends HttpException {
+  const NetworkConnectTimeoutErrorHttpException({
+    Map<String, dynamic>? data,
+    String detail = '',
+    Uri? uri,
+  }) : super(
+          data: data,
+          httpStatus: HttpStatus.networkConnectTimeoutError,
+          message:
+              'Network Connect Timeout Error${detail != '' ? ': ' : ''}$detail',
           uri: uri,
         );
 }

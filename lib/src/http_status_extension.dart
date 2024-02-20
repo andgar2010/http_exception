@@ -243,14 +243,38 @@ extension HttpStatusExtension on HttpStatus {
         detail: detail,
         uri: uri,
       );
+    } else if (this == HttpStatus.variantAlsoNegotiates) {
+      return VariantAlsoNegotiatesHttpException(
+        data: data,
+        detail: detail,
+        uri: uri,
+      );
     } else if (this == HttpStatus.insufficientStorage) {
       return InsufficientStorageHttpException(
         data: data,
         detail: detail,
         uri: uri,
       );
+    } else if (this == HttpStatus.loopDetected) {
+      return LoopDetectedHttpException(
+        data: data,
+        detail: detail,
+        uri: uri,
+      );
+    } else if (this == HttpStatus.notExtended) {
+      return NotExtendedHttpException(
+        data: data,
+        detail: detail,
+        uri: uri,
+      );
     } else if (this == HttpStatus.networkAuthenticationRequired) {
       return NetworkAuthenticationRequiredHttpException(
+        data: data,
+        detail: detail,
+        uri: uri,
+      );
+    } else if (this == HttpStatus.networkConnectTimeoutError) {
+      return NetworkConnectTimeoutErrorHttpException(
         data: data,
         detail: detail,
         uri: uri,

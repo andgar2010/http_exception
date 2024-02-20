@@ -1638,6 +1638,48 @@ void main() {
         });
       });
 
+      group('variantAlsoNegotiates_506', () {
+        const selectedEnum = HttpStatus.variantAlsoNegotiates;
+        final HttpException objectB =
+            HttpStatus.fromCode(HttpStatus.variantAlsoNegotiates.code)
+                .exception();
+
+        Never throwCustomDefaultException() {
+          throw selectedEnum.exception();
+        }
+
+        Never throwCustomDataException() {
+          throw selectedEnum.exception(
+            detail: "Not found key 'foo' and 'bar' in JSON",
+            data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+            uri: Uri.parse('https://example.org'),
+          );
+        }
+
+        test('test same object exception', () async {
+          expect(objectB, selectedEnum.exception());
+        });
+
+        test('code test', () async {
+          expect(selectedEnum.code, HttpStatus.variantAlsoNegotiates.code);
+        });
+
+        test('exception() default test', () async {
+          expect(throwCustomDefaultException, throwsException);
+          expect(
+            throwCustomDefaultException,
+            throwsA(isA<VariantAlsoNegotiatesHttpException>()),
+          );
+        });
+
+        test('exception() custom test', () async {
+          expect(throwCustomDataException, throwsException);
+          expect(
+            throwCustomDataException,
+            throwsA(isA<VariantAlsoNegotiatesHttpException>()),
+          );
+        });
+      });
       group('insufficientStorage_507', () {
         const selectedEnum = HttpStatus.insufficientStorage;
         final HttpException objectB =
@@ -1677,6 +1719,88 @@ void main() {
           expect(
             throwCustomDataException,
             throwsA(isA<InsufficientStorageHttpException>()),
+          );
+        });
+      });
+      group('loopDetected_508', () {
+        const selectedEnum = HttpStatus.loopDetected;
+        final HttpException objectB =
+            HttpStatus.fromCode(HttpStatus.loopDetected.code).exception();
+
+        Never throwCustomDefaultException() {
+          throw selectedEnum.exception();
+        }
+
+        Never throwCustomDataException() {
+          throw selectedEnum.exception(
+            detail: "Not found key 'foo' and 'bar' in JSON",
+            data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+            uri: Uri.parse('https://example.org'),
+          );
+        }
+
+        test('test same object exception', () async {
+          expect(objectB, selectedEnum.exception());
+        });
+
+        test('code test', () async {
+          expect(selectedEnum.code, HttpStatus.loopDetected.code);
+        });
+
+        test('exception() default test', () async {
+          expect(throwCustomDefaultException, throwsException);
+          expect(
+            throwCustomDefaultException,
+            throwsA(isA<LoopDetectedHttpException>()),
+          );
+        });
+
+        test('exception() custom test', () async {
+          expect(throwCustomDataException, throwsException);
+          expect(
+            throwCustomDataException,
+            throwsA(isA<LoopDetectedHttpException>()),
+          );
+        });
+      });
+      group('notExtended_510', () {
+        const selectedEnum = HttpStatus.notExtended;
+        final HttpException objectB =
+            HttpStatus.fromCode(HttpStatus.notExtended.code).exception();
+
+        Never throwCustomDefaultException() {
+          throw selectedEnum.exception();
+        }
+
+        Never throwCustomDataException() {
+          throw selectedEnum.exception(
+            detail: "Not found key 'foo' and 'bar' in JSON",
+            data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+            uri: Uri.parse('https://example.org'),
+          );
+        }
+
+        test('test same object exception', () async {
+          expect(objectB, selectedEnum.exception());
+        });
+
+        test('code test', () async {
+          expect(selectedEnum.code, HttpStatus.notExtended.code);
+        });
+
+        test('exception() default test', () async {
+          expect(throwCustomDefaultException, throwsException);
+          expect(
+            throwCustomDefaultException,
+            throwsA(isA<NotExtendedHttpException>()),
+          );
+        });
+
+        test('exception() custom test', () async {
+          expect(throwCustomDataException, throwsException);
+          expect(
+            throwCustomDataException,
+            throwsA(isA<NotExtendedHttpException>()),
           );
         });
       });
@@ -1725,6 +1849,51 @@ void main() {
             throwsA(isA<NetworkAuthenticationRequiredHttpException>()),
           );
         });
+      });
+    });
+    group('networkConnectTimeoutError_599', () {
+      const selectedEnum = HttpStatus.networkConnectTimeoutError;
+      final HttpException objectB =
+          HttpStatus.fromCode(HttpStatus.networkConnectTimeoutError.code)
+              .exception();
+
+      Never throwCustomDefaultException() {
+        throw selectedEnum.exception();
+      }
+
+      Never throwCustomDataException() {
+        throw selectedEnum.exception(
+          detail: "Not found key 'foo' and 'bar' in JSON",
+          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          uri: Uri.parse('https://example.org'),
+        );
+      }
+
+      test('test same object exception', () async {
+        expect(objectB, selectedEnum.exception());
+      });
+
+      test('code test', () async {
+        expect(
+          selectedEnum.code,
+          HttpStatus.networkConnectTimeoutError.code,
+        );
+      });
+
+      test('exception() default test', () async {
+        expect(throwCustomDefaultException, throwsException);
+        expect(
+          throwCustomDefaultException,
+          throwsA(isA<NetworkConnectTimeoutErrorHttpException>()),
+        );
+      });
+
+      test('exception() custom test', () async {
+        expect(throwCustomDataException, throwsException);
+        expect(
+          throwCustomDataException,
+          throwsA(isA<NetworkConnectTimeoutErrorHttpException>()),
+        );
       });
     });
   });
