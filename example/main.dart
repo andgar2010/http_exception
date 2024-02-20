@@ -24,25 +24,43 @@ void main() {
   final HttpException d = HttpStatus.fromCode(422).exception(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
-    uri: Uri.parse('http//dart.edv'),
+    uri: Uri.parse('http//dart.dev'),
   );
   print(d.toString());
-  // -> HTTPException Status 422 - Unprocessable Entity: Message Customized Detail Exception, uri = http//dart.edv, HTTP data = {name: dart, age: 7}
+  // -> HTTPException Status 422 - Unprocessable Entity: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
 
-  final HttpException e = BadGatewayHttpException(
-    data: {'name': 'dart', 'age': 7},
-    detail: 'Message Customized Detail Exception',
-    uri: Uri.parse('http//dart.edv'),
+  //TODO(andgar2010): Note: 'NotImplementedException' is deprecated and shouldn't be used. Use [NotImplementedHttpException] instead.
+
+  // ignore: deprecated_member_use_from_same_package
+  const HttpException e = NotImplementedException(
+    {'name': 'dart', 'age': 7},
+    'Message Customized Detail Exception',
   );
   print(e.toString());
-  // -> HTTPException Status 502 - Bad Gateway: Message Customized Detail Exception, uri = http//dart.edv, HTTP data = {name: dart, age: 7}
+  // -> HTTPException Status 501 - Not Implemented: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
-  final HttpException f = InvalidSSLCertificateHttpException(
+  final HttpException f = NotImplementedHttpException(
+    data: {'name': 'dart', 'age': 7},
+    detail: 'Message Customized Detail Exception',
+    uri: Uri.parse('http//dart.dev'),
+  );
+  print(f.toString());
+  // -> HTTPException Status 501 - Not Implemented: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
+
+  final HttpException g = BadGatewayHttpException(
+    data: {'name': 'dart', 'age': 7},
+    detail: 'Message Customized Detail Exception',
+    uri: Uri.parse('http//dart.dev'),
+  );
+  print(g.toString());
+  // -> HTTPException Status 502 - Bad Gateway: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
+
+  final HttpException h = InvalidSSLCertificateHttpException(
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://localhost:80'),
     data: {'id': 1, 'name': 'Dart'},
   );
-  print(f.toString());
+  print(h.toString());
   // -> HTTPException Status 888 - InvalidSSLCertificate: Message Customized Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
 }
 
