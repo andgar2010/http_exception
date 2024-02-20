@@ -50,8 +50,8 @@ class HttpException implements Exception {
   }
 
   Map<String, dynamic> toMap() => <String, dynamic>{
-      'httpStatusCode': httpStatus.code,
-      'message': message,
-      'uri': uri,
-    }..addAll(data ?? <String, dynamic>{});
+        'httpStatusCode': httpStatus.code,
+        'message': message,
+        'uri': uri,
+      }..addAll(data ?? <String, dynamic>{});
 }

@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('HTTP 4XX Exceptions', () {
-    group('- 400 BadRequestException', () {
+    group('- 400 BadRequestHttpException', () {
       const stringExpect =
           "HTTPException Status 400 - Bad Request: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -117,7 +117,7 @@ void main() {
       });
     });
 
-    group('- 401 UnauthorizedException', () {
+    group('- 401 UnauthorizedHttpException', () {
       const stringExpect =
           "HTTPException Status 401 - Unauthorized: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -231,7 +231,7 @@ void main() {
       });
     });
 
-    group('- 402 PaymentRequiredException', () {
+    group('- 402 PaymentRequiredHttpException', () {
       const stringExpect =
           "HTTPException Status 402 - Payment Required: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -345,7 +345,7 @@ void main() {
       });
     });
 
-    group('- 403 ForbiddenException', () {
+    group('- 403 ForbiddenHttpException', () {
       const stringExpect =
           "HTTPException Status 403 - Forbidden: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -458,7 +458,7 @@ void main() {
       });
     });
 
-    group('- 404 NotFoundException', () {
+    group('- 404 NotFoundHttpException', () {
       const stringExpect =
           "HTTPException Status 404 - Not Found: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -567,7 +567,7 @@ void main() {
       });
     });
 
-    group('- 405 MethodNotAllowedException', () {
+    group('- 405 MethodNotAllowedHttpException', () {
       const stringExpect =
           "HTTPException Status 405 - Method Not Allowed: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
@@ -681,7 +681,7 @@ void main() {
       });
     });
 
-    group('- 406 NotAcceptableException', () {
+    group('- 406 NotAcceptableHttpException', () {
       const stringHttpExpection = 'Not Acceptable';
       final codeStatusExpect = HttpStatus.notAcceptable.code;
       final isAMatcher = isA<NotAcceptableHttpException>();
@@ -795,7 +795,7 @@ void main() {
       });
     });
 
-    group('- 407 ProxyAuthenticationRequiredException', () {
+    group('- 407 ProxyAuthenticationRequiredHttpException', () {
       const stringHttpExpection = 'Proxy Authentication Required';
       final codeStatusExpect = HttpStatus.proxyAuthenticationRequired.code;
       final isAMatcher = isA<ProxyAuthenticationRequiredHttpException>();
@@ -909,7 +909,7 @@ void main() {
       });
     });
 
-    group('- 408 RequestTimeoutException', () {
+    group('- 408 RequestTimeoutHttpException', () {
       const stringHttpExpection = 'Request Timeout';
       final codeStatusExpect = HttpStatus.requestTimeout.code;
       final isAMatcher = isA<RequestTimeoutHttpException>();
@@ -1023,7 +1023,7 @@ void main() {
       });
     });
 
-    group('- 409 ConflictException', () {
+    group('- 409 ConflictHttpException', () {
       const stringHttpExpection = 'Conflict';
       final codeStatusExpect = HttpStatus.conflict.code;
       final isAMatcher = isA<ConflictHttpException>();
@@ -1135,7 +1135,7 @@ void main() {
       });
     });
 
-    group('- 410 GoneException', () {
+    group('- 410 GoneHttpException', () {
       const stringHttpExpection = 'Gone';
       final codeStatusExpect = HttpStatus.gone.code;
       final isAMatcher = isA<GoneHttpException>();
@@ -1247,7 +1247,7 @@ void main() {
       });
     });
 
-    group('- 411 LengthRequiredException', () {
+    group('- 411 LengthRequiredHttpException', () {
       const stringHttpExpection = 'Length Required';
       final codeStatusExpect = HttpStatus.lengthRequired.code;
       final isAMatcher = isA<LengthRequiredHttpException>();
@@ -1361,7 +1361,7 @@ void main() {
       });
     });
 
-    group('- 412 PreconditionFailedException', () {
+    group('- 412 PreconditionFailedHttpException', () {
       const stringHttpExpection = 'Precondition Failed';
       final codeStatusExpect = HttpStatus.preconditionFailed.code;
       final isAMatcher = isA<PreconditionFailedHttpException>();
@@ -1475,7 +1475,7 @@ void main() {
       });
     });
 
-    group('- 413 RequestEntityTooLargeException', () {
+    group('- 413 RequestEntityTooLargeHttpException', () {
       const stringHttpExpection = 'Request Entity Too Long';
       final codeStatusExpect = HttpStatus.requestEntityTooLarge.code;
       final isAMatcher = isA<RequestEntityTooLargeHttpException>();
@@ -1589,7 +1589,7 @@ void main() {
       });
     });
 
-    group('- 414 RequestUriTooLongException', () {
+    group('- 414 RequestUriTooLongHttpException', () {
       const stringHttpExpection = 'Request Uri Too Long';
       final codeStatusExpect = HttpStatus.requestUriTooLong.code;
       final isAMatcher = isA<RequestUriTooLongHttpException>();
@@ -1703,7 +1703,7 @@ void main() {
       });
     });
 
-    group('- 415 UnsupportedMediaTypeException', () {
+    group('- 415 UnsupportedMediaTypeHttpException', () {
       const stringHttpExpection = 'Unsupported Media Type';
       final codeStatusExpect = HttpStatus.unsupportedMediaType.code;
       final isAMatcher = isA<UnsupportedMediaTypeHttpException>();
@@ -1817,7 +1817,7 @@ void main() {
       });
     });
 
-    group('- 416 RequestedRangeNotSatisfiableException', () {
+    group('- 416 RequestedRangeNotSatisfiableHttpException', () {
       const stringHttpExpection = 'Requested Range Not Satisfiable';
       final codeStatusExpect = HttpStatus.requestedRangeNotSatisfiable.code;
       final isAMatcher = isA<RequestedRangeNotSatisfiableHttpException>();
@@ -1931,7 +1931,7 @@ void main() {
       });
     });
 
-    group('- 417 ExpectationFailedException', () {
+    group('- 417 ExpectationFailedHttpException', () {
       const stringHttpExpection = 'Expectation Failed';
       final codeStatusExpect = HttpStatus.expectationFailed.code;
       final isAMatcher = isA<ExpectationFailedHttpException>();
@@ -2045,7 +2045,7 @@ void main() {
       });
     });
 
-    group('- 418 ImATeapotException', () {
+    group('- 418 ImATeapotHttpException', () {
       const stringHttpExpection = "I'm A Teapot";
       final codeStatusExpect = HttpStatus.imATeapot.code;
       final isAMatcher = isA<ImATeapotHttpException>();
@@ -2158,7 +2158,7 @@ void main() {
       });
     });
 
-    group('- 419 InsufficientSpaceOnResourceException', () {
+    group('- 419 InsufficientSpaceOnResourceHttpException', () {
       const stringHttpExpection = 'Insufficient Space On Resource';
       final codeStatusExpect = HttpStatus.insufficientSpaceOnResource.code;
       final isAMatcher = isA<InsufficientSpaceOnResourceHttpException>();
@@ -2272,7 +2272,7 @@ void main() {
       });
     });
 
-    group('- 420 MethodFailureException', () {
+    group('- 420 MethodFailureHttpException', () {
       const stringHttpExpection = 'Method Failure';
       final codeStatusExpect = HttpStatus.methodFailure.code;
       final isAMatcher = isA<MethodFailureHttpException>();
@@ -2386,7 +2386,7 @@ void main() {
       });
     });
 
-    group('- 421 MisdirectedRequestException', () {
+    group('- 421 MisdirectedRequestHttpException', () {
       const stringHttpExpection = 'Misdirected Request';
       final codeStatusExpect = HttpStatus.misdirectedRequest.code;
       final isAMatcher = isA<MisdirectedRequestHttpException>();
@@ -2500,7 +2500,7 @@ void main() {
       });
     });
 
-    group('- 422 UnprocessableEntityException', () {
+    group('- 422 UnprocessableEntityHttpException', () {
       const stringHttpExpection = 'Unprocessable Entity';
       final codeStatusExpect = HttpStatus.unprocessableEntity.code;
       final isAMatcher = isA<UnprocessableEntityHttpException>();
@@ -2614,7 +2614,7 @@ void main() {
       });
     });
 
-    group('- 423 LockedException', () {
+    group('- 423 LockedHttpException', () {
       const stringHttpExpection = 'Locked';
       final codeStatusExpect = HttpStatus.locked.code;
       final isAMatcher = isA<LockedHttpException>();
@@ -2726,7 +2726,7 @@ void main() {
       });
     });
 
-    group('- 424 FailedDependencyException', () {
+    group('- 424 FailedDependencyHttpException', () {
       const stringHttpExpection = 'Failed Dependency';
       final codeStatusExpect = HttpStatus.failedDependency.code;
       final isAMatcher = isA<FailedDependencyHttpException>();
@@ -2840,7 +2840,7 @@ void main() {
       });
     });
 
-    group('- 426 UpgradeRequiredException', () {
+    group('- 426 UpgradeRequiredHttpException', () {
       const stringHttpExpection = 'Upgrade Required';
       final codeStatusExpect = HttpStatus.upgradeRequired.code;
       final isAMatcher = isA<UpgradeRequiredHttpException>();
@@ -2954,7 +2954,7 @@ void main() {
       });
     });
 
-    group('- 428 PreconditionRequiredException', () {
+    group('- 428 PreconditionRequiredHttpException', () {
       const stringHttpExpection = 'Precondition Required';
       final codeStatusExpect = HttpStatus.preconditionRequired.code;
       final isAMatcher = isA<PreconditionRequiredHttpException>();
@@ -3068,7 +3068,7 @@ void main() {
       });
     });
 
-    group('- 429 TooManyRequestsException', () {
+    group('- 429 TooManyRequestsHttpException', () {
       const stringHttpExpection = 'Too Many Requests';
       final codeStatusExpect = HttpStatus.tooManyRequests.code;
       final isAMatcher = isA<TooManyRequestsHttpException>();
@@ -3182,7 +3182,7 @@ void main() {
       });
     });
 
-    group('- 431 RequestHeaderFieldsTooLargeException', () {
+    group('- 431 RequestHeaderFieldsTooLargeHttpException', () {
       const stringHttpExpection = 'Request Header Fields Too Large';
       final codeStatusExpect = HttpStatus.requestHeaderFieldsTooLarge.code;
       final isAMatcher = isA<RequestHeaderFieldsTooLargeHttpException>();
@@ -3296,7 +3296,7 @@ void main() {
       });
     });
 
-    group('- 444 ConnectionClosedWithoutResponseException', () {
+    group('- 444 ConnectionClosedWithoutResponseHttpException', () {
       const stringHttpExpection = 'Connection Closed Without Response';
       final codeStatusExpect = HttpStatus.connectionClosedWithoutResponse.code;
       final isAMatcher = isA<ConnectionClosedWithoutResponseHttpException>();
@@ -3410,7 +3410,7 @@ void main() {
       });
     });
 
-    group('- 451 UnavailableForLegalReasonsException', () {
+    group('- 451 UnavailableForLegalReasonsHttpException', () {
       const stringHttpExpection = 'Unavailable For Legal Reasons';
       final codeStatusExpect = HttpStatus.unavailableForLegalReasons.code;
       final isAMatcher = isA<UnavailableForLegalReasonsHttpException>();
@@ -3524,7 +3524,7 @@ void main() {
       });
     });
 
-    group('- 499 ClientClosedRequestException', () {
+    group('- 499 ClientClosedRequestHttpException', () {
       const stringHttpExpection = 'Client Closed Request';
       final codeStatusExpect = HttpStatus.clientClosedRequest.code;
       final isAMatcher = isA<ClientClosedRequestHttpException>();
