@@ -12,7 +12,7 @@ environment:
   sdk: '>=2.15.0 <4.0.0'
 
 dependencies:
-  http_status: ^2.1.0
+  http_status: ^3.2.0
 
 dev_dependencies:
   test: ^1.17.12
