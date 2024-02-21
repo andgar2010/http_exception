@@ -33,7 +33,7 @@ class HttpException implements Exception {
 
   @override
   String toString() {
-    final stringBuffer = StringBuffer()
+    final StringBuffer stringBuffer = StringBuffer()
       ..write('HttpException Status ')
       ..write(httpStatus.code)
       ..write(' - ')

@@ -4,14 +4,14 @@ import 'package:test/test.dart';
 
 void main() {
   group('HttpException Class Base', () {
-    const stringDataExpect =
+    const String stringDataExpect =
         'HttpException Status 404 - Not found(Exception Test), '
         'uri = https://example.org, HTTP data = {foo: foo value, '
         'bar: bar value}';
-    const stringWithoutDataExpect =
+    const String stringWithoutDataExpect =
         'HttpException Status 404 - Not found(Exception Test)';
 
-    final mapExpectData = {
+    final Map<String, Object> mapExpectData = <String, Object>{
       'httpStatusCode': 404,
       'message': 'Not found(Exception Test)',
       'uri': Uri.parse('https://example.org'),
@@ -19,7 +19,7 @@ void main() {
       'bar': 'bar value',
     };
 
-    final mapExpect = {
+    final Map<String, Object?> mapExpect = <String, Object?>{
       'httpStatusCode': 404,
       'message': 'Not found(Exception Test)',
       'uri': null,
@@ -42,10 +42,10 @@ void main() {
     }
 
     test('== and hashCode', () {
-      final a = HttpStatus.notFound.exception();
-      final b = HttpStatus.code404NotFound.exception();
-      final c = HttpStatus.fromCode(404).exception();
-      final d = HttpStatus.fromCode(405).exception();
+      final HttpException a = HttpStatus.notFound.exception();
+      final HttpException b = HttpStatus.code404NotFound.exception();
+      final HttpException c = HttpStatus.fromCode(404).exception();
+      final HttpException d = HttpStatus.fromCode(405).exception();
 
       // Reflexive.
       expect(a, equals(a));
@@ -82,7 +82,7 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.toString(),
+            (HttpException x) => x.toString(),
             'message',
             contains(stringDataExpect),
           ),
@@ -92,7 +92,8 @@ void main() {
         throwErrorWithData,
         throwsA(
           predicate(
-            (x) => x is HttpException && x.toString() == stringDataExpect,
+            (Object? x) =>
+                x is HttpException && x.toString() == stringDataExpect,
           ),
         ),
       );
@@ -102,9 +103,9 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.data,
+            (HttpException x) => x.data,
             'data',
-            {'foo': 'foo value', 'bar': 'bar value'},
+            <String, String>{'foo': 'foo value', 'bar': 'bar value'},
           ),
         ),
       );
@@ -114,7 +115,7 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.httpStatus.code,
+            (HttpException x) => x.httpStatus.code,
             'httpStatusCode',
             HttpStatus.notFound.code,
           ),
@@ -126,7 +127,7 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.uri,
+            (HttpException x) => x.uri,
             'uri',
             Uri.parse('https://example.org'),
           ),
@@ -138,7 +139,7 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.toMap(),
+            (HttpException x) => x.toMap(),
             'toMap()',
             mapExpectData,
           ),
@@ -150,7 +151,7 @@ void main() {
         throwErrorWithoutData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.toMap(),
+            (HttpException x) => x.toMap(),
             'toMap()',
             mapExpect,
           ),
@@ -162,7 +163,7 @@ void main() {
         throwErrorWithData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.toString(),
+            (HttpException x) => x.toString(),
             'toString()',
             stringDataExpect,
           ),
@@ -174,7 +175,7 @@ void main() {
         throwErrorWithoutData,
         throwsA(
           isA<HttpException>().having(
-            (x) => x.toString(),
+            (HttpException x) => x.toString(),
             'toString()',
             stringWithoutDataExpect,
           ),

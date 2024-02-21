@@ -6,12 +6,12 @@ import 'package:test/test.dart';
 
 void main() {
   test('toMap', () {
-    const badRequest = BadRequestException(
+    const BadRequestException badRequest = BadRequestException(
       <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
       'Exception Test',
     );
 
-    final map = badRequest.toMap();
+    final Map<String, dynamic> map = badRequest.toMap();
 
     expect(map.length, 5);
     expect(map['httpStatusCode'], HttpStatusCode.badRequest);
@@ -21,12 +21,12 @@ void main() {
   });
 
   test('toMap with null as data', () {
-    const badRequest = BadRequestException(
+    const BadRequestException badRequest = BadRequestException(
       null,
       'Exception Test',
     );
 
-    final map = badRequest.toMap();
+    final Map<String, dynamic> map = badRequest.toMap();
 
     expect(map.length, 3);
     expect(map['httpStatusCode'], HttpStatusCode.badRequest);

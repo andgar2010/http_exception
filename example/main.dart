@@ -9,20 +9,20 @@ void main() {
   final HttpException a = HttpStatus.fromCode(422).exception();
   print(a.toString()); // -> HTTP Status 422 - Unprocessable Entity
 
-  final HttpException b =
-      HttpStatus.fromCode(422).exception(data: {'name': 'dart', 'age': 7});
+  final HttpException b = HttpStatus.fromCode(422)
+      .exception(data: <String, dynamic>{'name': 'dart', 'age': 7});
   print(b.toString());
   // -> HttpException Status 422 - Unprocessable Entity, HTTP data = {name: dart, age: 7}
 
   final HttpException c = HttpStatus.fromCode(422).exception(
-    data: {'name': 'dart', 'age': 7},
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
   );
   print(c.toString());
   // -> HttpException Status 422 - Unprocessable Entity: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException d = HttpStatus.fromCode(422).exception(
-    data: {'name': 'dart', 'age': 7},
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://dart.dev'),
   );
@@ -33,14 +33,14 @@ void main() {
 
   // ignore: deprecated_member_use_from_same_package
   const HttpException e = NotImplementedException(
-    {'name': 'dart', 'age': 7},
+    <String, dynamic>{'name': 'dart', 'age': 7},
     'Message Customized Detail Exception',
   );
   print(e.toString());
   // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException f = NotImplementedHttpException(
-    data: {'name': 'dart', 'age': 7},
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://dart.dev'),
   );
@@ -48,7 +48,7 @@ void main() {
   // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
   final HttpException g = BadGatewayHttpException(
-    data: {'name': 'dart', 'age': 7},
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://dart.dev'),
   );
@@ -58,7 +58,7 @@ void main() {
   final HttpException h = InvalidSSLCertificateHttpException(
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://localhost:80'),
-    data: {'id': 1, 'name': 'Dart'},
+    data: <String, dynamic>{'id': 1, 'name': 'Dart'},
   );
   print(h.toString());
   // -> HttpException Status 888 - InvalidSSLCertificate: Message Customized Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}

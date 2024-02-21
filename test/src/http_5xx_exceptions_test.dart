@@ -5,9 +5,10 @@ import 'package:test/test.dart';
 void main() {
   group('HTTP 5XX Exceptions -', () {
     group('500 InternalServerErrorHttpException', () {
-      const stringHttpExpection = 'Internal Server Error';
-      final codeStatusExpect = HttpStatus.internalServerError.code;
-      final isAMatcher = isA<InternalServerErrorHttpException>();
+      const String stringHttpExpection = 'Internal Server Error';
+      final int codeStatusExpect = HttpStatus.internalServerError.code;
+      final TypeMatcher<InternalServerErrorHttpException> isAMatcher =
+          isA<InternalServerErrorHttpException>();
 
       Never throwHttpCustomException() {
         throw InternalServerErrorHttpException(
@@ -17,10 +18,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -39,7 +40,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (InternalServerErrorHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -49,7 +50,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is InternalServerErrorHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -61,9 +62,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (InternalServerErrorHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -73,7 +74,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (InternalServerErrorHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -85,7 +86,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (InternalServerErrorHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -97,7 +98,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (InternalServerErrorHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -109,7 +110,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (InternalServerErrorHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -119,9 +120,10 @@ void main() {
     });
 
     group('501 NotImplementedHttpException', () {
-      const stringHttpExpection = 'Not Implemented';
-      final codeStatusExpect = HttpStatus.notImplemented.code;
-      final isAMatcher = isA<NotImplementedHttpException>();
+      const String stringHttpExpection = 'Not Implemented';
+      final int codeStatusExpect = HttpStatus.notImplemented.code;
+      final TypeMatcher<NotImplementedHttpException> isAMatcher =
+          isA<NotImplementedHttpException>();
 
       Never throwHttpCustomException() {
         throw NotImplementedHttpException(
@@ -131,10 +133,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -153,7 +155,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NotImplementedHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -163,7 +165,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is NotImplementedHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -175,9 +177,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (NotImplementedHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -187,7 +189,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (NotImplementedHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -199,7 +201,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (NotImplementedHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -211,7 +213,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (NotImplementedHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -223,7 +225,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NotImplementedHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -233,9 +235,10 @@ void main() {
     });
 
     group('502 BadGatewayHttpException', () {
-      const stringHttpExpection = 'Bad Gateway';
-      final codeStatusExpect = HttpStatus.badGateway.code;
-      final isAMatcher = isA<BadGatewayHttpException>();
+      const String stringHttpExpection = 'Bad Gateway';
+      final int codeStatusExpect = HttpStatus.badGateway.code;
+      final TypeMatcher<BadGatewayHttpException> isAMatcher =
+          isA<BadGatewayHttpException>();
 
       Never throwHttpCustomException() {
         throw BadGatewayHttpException(
@@ -245,10 +248,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -267,7 +270,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (BadGatewayHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -277,7 +280,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is BadGatewayHttpException && x.toString() == stringExpect,
             ),
           ),
@@ -288,9 +291,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (BadGatewayHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -300,7 +303,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (BadGatewayHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -312,7 +315,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (BadGatewayHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -324,7 +327,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (BadGatewayHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -336,7 +339,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (BadGatewayHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -346,9 +349,10 @@ void main() {
     });
 
     group('503 ServiceUnavailableException ', () {
-      const stringHttpExpection = 'Service Unavailable';
-      final codeStatusExpect = HttpStatus.serviceUnavailable.code;
-      final isAMatcher = isA<ServiceUnavailableHttpException>();
+      const String stringHttpExpection = 'Service Unavailable';
+      final int codeStatusExpect = HttpStatus.serviceUnavailable.code;
+      final TypeMatcher<ServiceUnavailableHttpException> isAMatcher =
+          isA<ServiceUnavailableHttpException>();
 
       Never throwHttpCustomException() {
         throw ServiceUnavailableHttpException(
@@ -358,10 +362,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -380,7 +384,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (ServiceUnavailableHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -390,7 +394,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is ServiceUnavailableHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -402,9 +406,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (ServiceUnavailableHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -414,7 +418,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (ServiceUnavailableHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -426,7 +430,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (ServiceUnavailableHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -438,7 +442,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (ServiceUnavailableHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -450,7 +454,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (ServiceUnavailableHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -460,9 +464,10 @@ void main() {
     });
 
     group('504 GatewayTimeoutHttpException', () {
-      const stringHttpExpection = 'Gateway Timeout';
-      final codeStatusExpect = HttpStatus.gatewayTimeout.code;
-      final isAMatcher = isA<GatewayTimeoutHttpException>();
+      const String stringHttpExpection = 'Gateway Timeout';
+      final int codeStatusExpect = HttpStatus.gatewayTimeout.code;
+      final TypeMatcher<GatewayTimeoutHttpException> isAMatcher =
+          isA<GatewayTimeoutHttpException>();
 
       Never throwHttpCustomException() {
         throw GatewayTimeoutHttpException(
@@ -472,10 +477,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -494,7 +499,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (GatewayTimeoutHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -504,7 +509,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is GatewayTimeoutHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -516,9 +521,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (GatewayTimeoutHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -528,7 +533,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (GatewayTimeoutHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -540,7 +545,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (GatewayTimeoutHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -552,7 +557,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (GatewayTimeoutHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -564,7 +569,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (GatewayTimeoutHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -574,9 +579,10 @@ void main() {
     });
 
     group('505 HttpVersionNotSupportedHttpException', () {
-      const stringHttpExpection = 'Http Version Not Supported';
-      final codeStatusExpect = HttpStatus.httpVersionNotSupported.code;
-      final isAMatcher = isA<HttpVersionNotSupportedHttpException>();
+      const String stringHttpExpection = 'Http Version Not Supported';
+      final int codeStatusExpect = HttpStatus.httpVersionNotSupported.code;
+      final TypeMatcher<HttpVersionNotSupportedHttpException> isAMatcher =
+          isA<HttpVersionNotSupportedHttpException>();
 
       Never throwHttpCustomException() {
         throw HttpVersionNotSupportedHttpException(
@@ -586,10 +592,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -608,7 +614,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (HttpVersionNotSupportedHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -618,7 +624,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is HttpVersionNotSupportedHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -630,9 +636,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (HttpVersionNotSupportedHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -642,7 +648,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (HttpVersionNotSupportedHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -654,7 +660,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (HttpVersionNotSupportedHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -666,7 +672,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (HttpVersionNotSupportedHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -678,7 +684,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (HttpVersionNotSupportedHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -688,9 +694,10 @@ void main() {
     });
 
     group('506 VariantAlsoNegotiatesHttpException', () {
-      const stringHttpExpection = 'Variant Also Negotiates';
-      final codeStatusExpect = HttpStatus.variantAlsoNegotiates.code;
-      final isAMatcher = isA<VariantAlsoNegotiatesHttpException>();
+      const String stringHttpExpection = 'Variant Also Negotiates';
+      final int codeStatusExpect = HttpStatus.variantAlsoNegotiates.code;
+      final TypeMatcher<VariantAlsoNegotiatesHttpException> isAMatcher =
+          isA<VariantAlsoNegotiatesHttpException>();
 
       Never throwHttpCustomException() {
         throw VariantAlsoNegotiatesHttpException(
@@ -700,10 +707,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -722,7 +729,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (VariantAlsoNegotiatesHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -732,7 +739,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is VariantAlsoNegotiatesHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -744,9 +751,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (VariantAlsoNegotiatesHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -756,7 +763,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (VariantAlsoNegotiatesHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -768,7 +775,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (VariantAlsoNegotiatesHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -780,7 +787,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (VariantAlsoNegotiatesHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -792,7 +799,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (VariantAlsoNegotiatesHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -801,9 +808,10 @@ void main() {
       });
     });
     group('507 InsufficientStorageHttpException', () {
-      const stringHttpExpection = 'Insufficient Storage';
-      final codeStatusExpect = HttpStatus.insufficientStorage.code;
-      final isAMatcher = isA<InsufficientStorageHttpException>();
+      const String stringHttpExpection = 'Insufficient Storage';
+      final int codeStatusExpect = HttpStatus.insufficientStorage.code;
+      final TypeMatcher<InsufficientStorageHttpException> isAMatcher =
+          isA<InsufficientStorageHttpException>();
 
       Never throwHttpCustomException() {
         throw InsufficientStorageHttpException(
@@ -813,10 +821,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -835,7 +843,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (InsufficientStorageHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -845,7 +853,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is InsufficientStorageHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -857,9 +865,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (InsufficientStorageHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -869,7 +877,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (InsufficientStorageHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -881,7 +889,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (InsufficientStorageHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -893,7 +901,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (InsufficientStorageHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -905,7 +913,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (InsufficientStorageHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -914,9 +922,10 @@ void main() {
       });
     });
     group('508 LoopDetectedHttpException', () {
-      const stringHttpExpection = 'Loop Detected';
-      final codeStatusExpect = HttpStatus.loopDetected.code;
-      final isAMatcher = isA<LoopDetectedHttpException>();
+      const String stringHttpExpection = 'Loop Detected';
+      final int codeStatusExpect = HttpStatus.loopDetected.code;
+      final TypeMatcher<LoopDetectedHttpException> isAMatcher =
+          isA<LoopDetectedHttpException>();
 
       Never throwHttpCustomException() {
         throw LoopDetectedHttpException(
@@ -926,10 +935,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -948,7 +957,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (LoopDetectedHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -958,7 +967,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is LoopDetectedHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -970,9 +979,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (LoopDetectedHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -982,7 +991,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (LoopDetectedHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -994,7 +1003,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (LoopDetectedHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -1006,7 +1015,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (LoopDetectedHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -1018,7 +1027,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (LoopDetectedHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -1027,9 +1036,10 @@ void main() {
       });
     });
     group('510 NotExtendedHttpException', () {
-      const stringHttpExpection = 'Not Extended';
-      final codeStatusExpect = HttpStatus.notExtended.code;
-      final isAMatcher = isA<NotExtendedHttpException>();
+      const String stringHttpExpection = 'Not Extended';
+      final int codeStatusExpect = HttpStatus.notExtended.code;
+      final TypeMatcher<NotExtendedHttpException> isAMatcher =
+          isA<NotExtendedHttpException>();
 
       Never throwHttpCustomException() {
         throw NotExtendedHttpException(
@@ -1039,10 +1049,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -1061,7 +1071,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NotExtendedHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -1071,7 +1081,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is NotExtendedHttpException && x.toString() == stringExpect,
             ),
           ),
@@ -1082,9 +1092,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (NotExtendedHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -1094,7 +1104,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (NotExtendedHttpException x) => x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -1106,7 +1116,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (NotExtendedHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -1118,7 +1128,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (NotExtendedHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -1130,7 +1140,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NotExtendedHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -1140,9 +1150,11 @@ void main() {
     });
 
     group('511 NetworkAuthenticationRequiredHttpException', () {
-      const stringHttpExpection = 'Network Authentication Required';
-      final codeStatusExpect = HttpStatus.networkAuthenticationRequired.code;
-      final isAMatcher = isA<NetworkAuthenticationRequiredHttpException>();
+      const String stringHttpExpection = 'Network Authentication Required';
+      final int codeStatusExpect =
+          HttpStatus.networkAuthenticationRequired.code;
+      final TypeMatcher<NetworkAuthenticationRequiredHttpException> isAMatcher =
+          isA<NetworkAuthenticationRequiredHttpException>();
 
       Never throwHttpCustomException() {
         throw NetworkAuthenticationRequiredHttpException(
@@ -1152,10 +1164,10 @@ void main() {
         );
       }
 
-      final stringExpect =
+      final String stringExpect =
           "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-      final mapExpect = {
+      final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
         'message':
             "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
@@ -1174,7 +1186,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NetworkAuthenticationRequiredHttpException x) => x.toString(),
               'message',
               contains(stringExpect),
             ),
@@ -1184,7 +1196,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             predicate(
-              (x) =>
+              (Object? x) =>
                   x is NetworkAuthenticationRequiredHttpException &&
                   x.toString() == stringExpect,
             ),
@@ -1196,9 +1208,9 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.data,
+              (NetworkAuthenticationRequiredHttpException x) => x.data,
               'data',
-              {'foo': 'foo value', 'bar': 'bar value'},
+              <String, String>{'foo': 'foo value', 'bar': 'bar value'},
             ),
           ),
         );
@@ -1208,7 +1220,8 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.httpStatus.code,
+              (NetworkAuthenticationRequiredHttpException x) =>
+                  x.httpStatus.code,
               'httpStatusCode',
               codeStatusExpect,
             ),
@@ -1220,7 +1233,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.uri,
+              (NetworkAuthenticationRequiredHttpException x) => x.uri,
               'uri',
               Uri.parse('https://example.org'),
             ),
@@ -1232,7 +1245,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toMap(),
+              (NetworkAuthenticationRequiredHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
             ),
@@ -1244,7 +1257,7 @@ void main() {
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
-              (x) => x.toString(),
+              (NetworkAuthenticationRequiredHttpException x) => x.toString(),
               'toString()',
               stringExpect,
             ),
@@ -1254,9 +1267,10 @@ void main() {
     });
   });
   group('599 NetworkAuthenticationRequiredHttpException', () {
-    const stringHttpExpection = 'Network Connect Timeout Error';
-    final codeStatusExpect = HttpStatus.networkConnectTimeoutError.code;
-    final isAMatcher = isA<NetworkConnectTimeoutErrorHttpException>();
+    const String stringHttpExpection = 'Network Connect Timeout Error';
+    final int codeStatusExpect = HttpStatus.networkConnectTimeoutError.code;
+    final TypeMatcher<NetworkConnectTimeoutErrorHttpException> isAMatcher =
+        isA<NetworkConnectTimeoutErrorHttpException>();
 
     Never throwHttpCustomException() {
       throw NetworkConnectTimeoutErrorHttpException(
@@ -1266,10 +1280,10 @@ void main() {
       );
     }
 
-    final stringExpect =
+    final String stringExpect =
         "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
-    final mapExpect = {
+    final Map<String, Object> mapExpect = <String, Object>{
       'httpStatusCode': codeStatusExpect,
       'message': "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
       'uri': Uri.parse('https://example.org'),
@@ -1287,7 +1301,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.toString(),
+            (NetworkConnectTimeoutErrorHttpException x) => x.toString(),
             'message',
             contains(stringExpect),
           ),
@@ -1297,7 +1311,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           predicate(
-            (x) =>
+            (Object? x) =>
                 x is NetworkConnectTimeoutErrorHttpException &&
                 x.toString() == stringExpect,
           ),
@@ -1309,9 +1323,9 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.data,
+            (NetworkConnectTimeoutErrorHttpException x) => x.data,
             'data',
-            {'foo': 'foo value', 'bar': 'bar value'},
+            <String, String>{'foo': 'foo value', 'bar': 'bar value'},
           ),
         ),
       );
@@ -1321,7 +1335,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.httpStatus.code,
+            (NetworkConnectTimeoutErrorHttpException x) => x.httpStatus.code,
             'httpStatusCode',
             codeStatusExpect,
           ),
@@ -1333,7 +1347,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.uri,
+            (NetworkConnectTimeoutErrorHttpException x) => x.uri,
             'uri',
             Uri.parse('https://example.org'),
           ),
@@ -1345,7 +1359,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.toMap(),
+            (NetworkConnectTimeoutErrorHttpException x) => x.toMap(),
             'toMap()',
             mapExpect,
           ),
@@ -1357,7 +1371,7 @@ void main() {
         throwHttpCustomException,
         throwsA(
           isAMatcher.having(
-            (x) => x.toString(),
+            (NetworkConnectTimeoutErrorHttpException x) => x.toString(),
             'toString()',
             stringExpect,
           ),

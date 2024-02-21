@@ -91,7 +91,7 @@ void main() {
       });
 
       group('unauthorized_401', () {
-        const selectedEnum = HttpStatus.unauthorized;
+        const HttpStatus selectedEnum = HttpStatus.unauthorized;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.unauthorized.code).exception();
 
@@ -132,7 +132,7 @@ void main() {
         });
       });
       group('paymentRequired_402', () {
-        const selectedEnum = HttpStatus.paymentRequired;
+        const HttpStatus selectedEnum = HttpStatus.paymentRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.paymentRequired.code).exception();
 
@@ -173,7 +173,7 @@ void main() {
         });
       });
       group('forbidden_403', () {
-        const selectedEnum = HttpStatus.forbidden;
+        const HttpStatus selectedEnum = HttpStatus.forbidden;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.forbidden.code).exception();
 
@@ -214,7 +214,7 @@ void main() {
         });
       });
       group('notFound_404', () {
-        const selectedEnum = HttpStatus.notFound;
+        const HttpStatus selectedEnum = HttpStatus.notFound;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.notFound.code).exception();
 
@@ -255,7 +255,7 @@ void main() {
         });
       });
       group('methodNotAllowed_405', () {
-        const selectedEnum = HttpStatus.methodNotAllowed;
+        const HttpStatus selectedEnum = HttpStatus.methodNotAllowed;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.methodNotAllowed.code).exception();
 
@@ -296,7 +296,7 @@ void main() {
         });
       });
       group('notAcceptable_406', () {
-        const selectedEnum = HttpStatus.notAcceptable;
+        const HttpStatus selectedEnum = HttpStatus.notAcceptable;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.notAcceptable.code).exception();
 
@@ -337,7 +337,7 @@ void main() {
         });
       });
       group('proxyAuthenticationRequired_407', () {
-        const selectedEnum = HttpStatus.proxyAuthenticationRequired;
+        const HttpStatus selectedEnum = HttpStatus.proxyAuthenticationRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.proxyAuthenticationRequired.code)
                 .exception();
@@ -382,7 +382,7 @@ void main() {
         });
       });
       group('requestTimeout_408', () {
-        const selectedEnum = HttpStatus.requestTimeout;
+        const HttpStatus selectedEnum = HttpStatus.requestTimeout;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.requestTimeout.code).exception();
 
@@ -423,7 +423,7 @@ void main() {
         });
       });
       group('conflict_409', () {
-        const selectedEnum = HttpStatus.conflict;
+        const HttpStatus selectedEnum = HttpStatus.conflict;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.conflict.code).exception();
 
@@ -464,7 +464,7 @@ void main() {
         });
       });
       group('gone_410', () {
-        const selectedEnum = HttpStatus.gone;
+        const HttpStatus selectedEnum = HttpStatus.gone;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.gone.code).exception();
 
@@ -502,7 +502,7 @@ void main() {
         });
       });
       group('lengthRequired_411', () {
-        const selectedEnum = HttpStatus.lengthRequired;
+        const HttpStatus selectedEnum = HttpStatus.lengthRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.lengthRequired.code).exception();
 
@@ -543,7 +543,7 @@ void main() {
         });
       });
       group('preconditionFailed_412', () {
-        const selectedEnum = HttpStatus.preconditionFailed;
+        const HttpStatus selectedEnum = HttpStatus.preconditionFailed;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.preconditionFailed.code).exception();
 
@@ -584,7 +584,7 @@ void main() {
         });
       });
       group('requestEntityTooLarge_413', () {
-        const selectedEnum = HttpStatus.requestEntityTooLarge;
+        const HttpStatus selectedEnum = HttpStatus.requestEntityTooLarge;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.requestEntityTooLarge.code)
                 .exception();
@@ -626,7 +626,7 @@ void main() {
         });
       });
       group('requestUriTooLong_414', () {
-        const selectedEnum = HttpStatus.requestUriTooLong;
+        const HttpStatus selectedEnum = HttpStatus.requestUriTooLong;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.requestUriTooLong.code).exception();
 
@@ -667,7 +667,7 @@ void main() {
         });
       });
       group('unsupportedMediaType_415', () {
-        const selectedEnum = HttpStatus.unsupportedMediaType;
+        const HttpStatus selectedEnum = HttpStatus.unsupportedMediaType;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.unsupportedMediaType.code)
                 .exception();
@@ -709,7 +709,7 @@ void main() {
         });
       });
       group('requestedRangeNotSatisfiable_416', () {
-        const selectedEnum = HttpStatus.requestedRangeNotSatisfiable;
+        const HttpStatus selectedEnum = HttpStatus.requestedRangeNotSatisfiable;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.requestedRangeNotSatisfiable.code)
                 .exception();
@@ -754,7 +754,7 @@ void main() {
         });
       });
       group('expectationFailed_417', () {
-        const selectedEnum = HttpStatus.expectationFailed;
+        const HttpStatus selectedEnum = HttpStatus.expectationFailed;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.expectationFailed.code).exception();
 
@@ -795,7 +795,7 @@ void main() {
         });
       });
       group('imATeapot_418', () {
-        const selectedEnum = HttpStatus.imATeapot;
+        const HttpStatus selectedEnum = HttpStatus.imATeapot;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.imATeapot.code).exception();
 
@@ -836,7 +836,7 @@ void main() {
         });
       });
       group('insufficientSpaceOnResource_419', () {
-        const selectedEnum = HttpStatus.insufficientSpaceOnResource;
+        const HttpStatus selectedEnum = HttpStatus.insufficientSpaceOnResource;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.insufficientSpaceOnResource.code)
                 .exception();
@@ -881,7 +881,7 @@ void main() {
         });
       });
       group('methodFailure_420', () {
-        const selectedEnum = HttpStatus.methodFailure;
+        const HttpStatus selectedEnum = HttpStatus.methodFailure;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.methodFailure.code).exception();
 
@@ -922,7 +922,7 @@ void main() {
         });
       });
       group('misdirectedRequest_421', () {
-        const selectedEnum = HttpStatus.misdirectedRequest;
+        const HttpStatus selectedEnum = HttpStatus.misdirectedRequest;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.misdirectedRequest.code).exception();
 
@@ -963,7 +963,7 @@ void main() {
         });
       });
       group('unprocessableEntity_422', () {
-        const selectedEnum = HttpStatus.unprocessableEntity;
+        const HttpStatus selectedEnum = HttpStatus.unprocessableEntity;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.unprocessableEntity.code)
                 .exception();
@@ -1005,7 +1005,7 @@ void main() {
         });
       });
       group('locked_423', () {
-        const selectedEnum = HttpStatus.locked;
+        const HttpStatus selectedEnum = HttpStatus.locked;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.locked.code).exception();
 
@@ -1043,7 +1043,7 @@ void main() {
         });
       });
       group('failedDependency_424', () {
-        const selectedEnum = HttpStatus.failedDependency;
+        const HttpStatus selectedEnum = HttpStatus.failedDependency;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.failedDependency.code).exception();
 
@@ -1084,7 +1084,7 @@ void main() {
         });
       });
       group('upgradeRequired_426', () {
-        const selectedEnum = HttpStatus.upgradeRequired;
+        const HttpStatus selectedEnum = HttpStatus.upgradeRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.upgradeRequired.code).exception();
 
@@ -1125,7 +1125,7 @@ void main() {
         });
       });
       group('preconditionRequired_428', () {
-        const selectedEnum = HttpStatus.preconditionRequired;
+        const HttpStatus selectedEnum = HttpStatus.preconditionRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.preconditionRequired.code)
                 .exception();
@@ -1167,7 +1167,7 @@ void main() {
         });
       });
       group('tooManyRequests_429', () {
-        const selectedEnum = HttpStatus.tooManyRequests;
+        const HttpStatus selectedEnum = HttpStatus.tooManyRequests;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.tooManyRequests.code).exception();
 
@@ -1208,7 +1208,7 @@ void main() {
         });
       });
       group('requestHeaderFieldsTooLarge_431', () {
-        const selectedEnum = HttpStatus.requestHeaderFieldsTooLarge;
+        const HttpStatus selectedEnum = HttpStatus.requestHeaderFieldsTooLarge;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.requestHeaderFieldsTooLarge.code)
                 .exception();
@@ -1253,7 +1253,8 @@ void main() {
         });
       });
       group('connectionClosedWithoutResponse_444', () {
-        const selectedEnum = HttpStatus.connectionClosedWithoutResponse;
+        const HttpStatus selectedEnum =
+            HttpStatus.connectionClosedWithoutResponse;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.connectionClosedWithoutResponse.code)
                 .exception();
@@ -1298,7 +1299,7 @@ void main() {
         });
       });
       group('unavailableForLegalReasons_451', () {
-        const selectedEnum = HttpStatus.unavailableForLegalReasons;
+        const HttpStatus selectedEnum = HttpStatus.unavailableForLegalReasons;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.unavailableForLegalReasons.code)
                 .exception();
@@ -1340,7 +1341,7 @@ void main() {
         });
       });
       group('clientClosedRequest_499', () {
-        const selectedEnum = HttpStatus.clientClosedRequest;
+        const HttpStatus selectedEnum = HttpStatus.clientClosedRequest;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.clientClosedRequest.code)
                 .exception();
@@ -1385,7 +1386,7 @@ void main() {
 
     group('5xx', () {
       group('internalServerError_500', () {
-        const selectedEnum = HttpStatus.internalServerError;
+        const HttpStatus selectedEnum = HttpStatus.internalServerError;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.internalServerError.code)
                 .exception();
@@ -1428,7 +1429,7 @@ void main() {
       });
 
       group('notImplemented_501', () {
-        const selectedEnum = HttpStatus.notImplemented;
+        const HttpStatus selectedEnum = HttpStatus.notImplemented;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.notImplemented.code).exception();
 
@@ -1470,7 +1471,7 @@ void main() {
       });
 
       group('badGateway_502', () {
-        const selectedEnum = HttpStatus.badGateway;
+        const HttpStatus selectedEnum = HttpStatus.badGateway;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.badGateway.code).exception();
 
@@ -1512,7 +1513,7 @@ void main() {
       });
 
       group('serviceUnavailable_503', () {
-        const selectedEnum = HttpStatus.serviceUnavailable;
+        const HttpStatus selectedEnum = HttpStatus.serviceUnavailable;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.serviceUnavailable.code).exception();
 
@@ -1554,7 +1555,7 @@ void main() {
       });
 
       group('gatewayTimeout_504', () {
-        const selectedEnum = HttpStatus.gatewayTimeout;
+        const HttpStatus selectedEnum = HttpStatus.gatewayTimeout;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.gatewayTimeout.code).exception();
 
@@ -1596,7 +1597,7 @@ void main() {
       });
 
       group('httpVersionNotSupported_505', () {
-        const selectedEnum = HttpStatus.httpVersionNotSupported;
+        const HttpStatus selectedEnum = HttpStatus.httpVersionNotSupported;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.httpVersionNotSupported.code)
                 .exception();
@@ -1639,7 +1640,7 @@ void main() {
       });
 
       group('variantAlsoNegotiates_506', () {
-        const selectedEnum = HttpStatus.variantAlsoNegotiates;
+        const HttpStatus selectedEnum = HttpStatus.variantAlsoNegotiates;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.variantAlsoNegotiates.code)
                 .exception();
@@ -1681,7 +1682,7 @@ void main() {
         });
       });
       group('insufficientStorage_507', () {
-        const selectedEnum = HttpStatus.insufficientStorage;
+        const HttpStatus selectedEnum = HttpStatus.insufficientStorage;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.insufficientStorage.code)
                 .exception();
@@ -1723,7 +1724,7 @@ void main() {
         });
       });
       group('loopDetected_508', () {
-        const selectedEnum = HttpStatus.loopDetected;
+        const HttpStatus selectedEnum = HttpStatus.loopDetected;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.loopDetected.code).exception();
 
@@ -1764,7 +1765,7 @@ void main() {
         });
       });
       group('notExtended_510', () {
-        const selectedEnum = HttpStatus.notExtended;
+        const HttpStatus selectedEnum = HttpStatus.notExtended;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.notExtended.code).exception();
 
@@ -1806,7 +1807,8 @@ void main() {
       });
 
       group('networkAuthenticationRequired_511', () {
-        const selectedEnum = HttpStatus.networkAuthenticationRequired;
+        const HttpStatus selectedEnum =
+            HttpStatus.networkAuthenticationRequired;
         final HttpException objectB =
             HttpStatus.fromCode(HttpStatus.networkAuthenticationRequired.code)
                 .exception();
@@ -1852,7 +1854,7 @@ void main() {
       });
     });
     group('networkConnectTimeoutError_599', () {
-      const selectedEnum = HttpStatus.networkConnectTimeoutError;
+      const HttpStatus selectedEnum = HttpStatus.networkConnectTimeoutError;
       final HttpException objectB =
           HttpStatus.fromCode(HttpStatus.networkConnectTimeoutError.code)
               .exception();
