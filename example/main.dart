@@ -12,22 +12,22 @@ void main() {
   final HttpException b =
       HttpStatus.fromCode(422).exception(data: {'name': 'dart', 'age': 7});
   print(b.toString());
-  // -> HTTPException Status 422 - Unprocessable Entity, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 422 - Unprocessable Entity, HTTP data = {name: dart, age: 7}
 
   final HttpException c = HttpStatus.fromCode(422).exception(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
   );
   print(c.toString());
-  // -> HTTPException Status 422 - Unprocessable Entity: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 422 - Unprocessable Entity: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException d = HttpStatus.fromCode(422).exception(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
-    uri: Uri.parse('http//dart.dev'),
+    uri: Uri.parse('http://dart.dev'),
   );
   print(d.toString());
-  // -> HTTPException Status 422 - Unprocessable Entity: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 422 - Unprocessable Entity: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
   //TODO(andgar2010): Note: 'NotImplementedException' is deprecated and shouldn't be used. Use [NotImplementedHttpException] instead.
 
@@ -37,23 +37,23 @@ void main() {
     'Message Customized Detail Exception',
   );
   print(e.toString());
-  // -> HTTPException Status 501 - Not Implemented: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException f = NotImplementedHttpException(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
-    uri: Uri.parse('http//dart.dev'),
+    uri: Uri.parse('http://dart.dev'),
   );
   print(f.toString());
-  // -> HTTPException Status 501 - Not Implemented: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
   final HttpException g = BadGatewayHttpException(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
-    uri: Uri.parse('http//dart.dev'),
+    uri: Uri.parse('http://dart.dev'),
   );
   print(g.toString());
-  // -> HTTPException Status 502 - Bad Gateway: Message Customized Detail Exception, uri = http//dart.dev, HTTP data = {name: dart, age: 7}
+  // -> HttpException Status 502 - Bad Gateway: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
   final HttpException h = InvalidSSLCertificateHttpException(
     detail: 'Message Customized Detail Exception',
@@ -61,7 +61,7 @@ void main() {
     data: {'id': 1, 'name': 'Dart'},
   );
   print(h.toString());
-  // -> HTTPException Status 888 - InvalidSSLCertificate: Message Customized Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
+  // -> HttpException Status 888 - InvalidSSLCertificate: Message Customized Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
 }
 
 // creating custom http status

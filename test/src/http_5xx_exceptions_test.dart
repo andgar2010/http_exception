@@ -18,7 +18,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -132,7 +132,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -246,7 +246,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -359,7 +359,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -473,7 +473,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -587,7 +587,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -701,7 +701,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -814,7 +814,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -927,7 +927,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -1040,7 +1040,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -1153,7 +1153,7 @@ void main() {
       }
 
       final stringExpect =
-          "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final mapExpect = {
         'httpStatusCode': codeStatusExpect,
@@ -1267,7 +1267,7 @@ void main() {
     }
 
     final stringExpect =
-        "HTTPException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+        "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
     final mapExpect = {
       'httpStatusCode': codeStatusExpect,
