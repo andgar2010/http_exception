@@ -6,7 +6,44 @@ import 'package:http_status/http_status.dart';
 
 import '../http_exception.dart';
 
+/// Extension on [HttpStatus] to easily convert HTTP status codes into
+/// corresponding [HttpException] instances, allowing for more descriptive and
+/// granular error handling.
+///
+/// This extension provides a convenient way to handle different
+/// HTTP status codes by mapping them to specific exceptions. Each exception
+/// can carry additional details such as a human-readable explanation
+/// (detail), arbitrary data (data), and the URI (uri) associated with
+/// the HTTP request.
+///
+/// Example usage:
+///
+/// ```dart
+/// final httpStatus = HttpStatus.notFound;
+/// try {
+///   throw httpStatus.exception(detail: 'Resource not found', uri: Uri.parse('https://example.com'));
+/// } on NotFoundHttpException catch (e) {
+///   // Handle 404 Not Found exception
+///   print(e.message);
+/// }
+/// ```
 extension HttpStatusExtension on HttpStatus {
+  /// Creates an [HttpException] based on the [HttpStatus] value.
+  ///
+  /// Each HTTP status code results in a corresponding [HttpException] subclass,
+  /// allowing for detailed and specific error handling based on HTTP
+  /// response status.
+  /// If a status code does not match any predefined subclasses,
+  /// a generic HttpStatus [HttpException] will be thrown.
+  ///
+  /// * [detail]: Optional human-readable message providing more context about the error.
+  ///
+  /// * [data]: Optional arbitrary data associated with the exception. Can be used to carry additional information pertinent to the exception.
+  ///
+  /// * [uri]: Optional [Uri] associated with the HTTP request that resulted in this error.
+  ///
+  /// Returns an [HttpException] or one of its subclasses, tailored to represent the
+  /// specific HTTP status code.
   HttpException exception({
     String detail = '',
     Map<String, dynamic>? data,
