@@ -85,11 +85,3 @@ dart_code_linter:
   extends:
     - package:dart_code_linter/presets/recommended.yaml
     - package:dart_code_linter/presets/metrics_recommended.yaml
-
-  # rules:
-  # - prefer-correct-identifier-length:
-  #     exceptions: [ 'ok', 'Ok', 'OK' ]
-  #     exclude:
-  #       - test/**
-  # - format-comment: false
-  # - no-magic-number: false
