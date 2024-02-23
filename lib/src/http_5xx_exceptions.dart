@@ -32,8 +32,8 @@ class NotImplementedException extends NotImplementedHttpException {
   /// {@macro 501_not_implemented_http_exception}
   @Deprecated('Use [NotImplementedHttpException] instead.')
   const NotImplementedException([
-    String detail = '',
     Map<String, dynamic>? data,
+    String detail = '',
   ]) : super(data: data, detail: detail);
 }
 
