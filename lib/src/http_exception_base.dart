@@ -6,10 +6,12 @@
 // is governed by a Apache-style license that can be found in the LICENSE file.
 
 import 'package:http_status/http_status.dart';
+import 'package:meta/meta.dart';
 
 /// A base class for specific HTTP exception classes.
 /// [Map] data can be provided to add additional information as the response
 /// body.
+@immutable
 class HttpException implements Exception {
   const HttpException({
     required this.httpStatus,

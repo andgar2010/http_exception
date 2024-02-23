@@ -13,7 +13,7 @@ void main() {
       Never throwHttpCustomException() {
         throw InternalServerErrorHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -128,7 +128,7 @@ void main() {
       Never throwHttpCustomException() {
         throw NotImplementedHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -243,7 +243,7 @@ void main() {
       Never throwHttpCustomException() {
         throw BadGatewayHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -357,7 +357,7 @@ void main() {
       Never throwHttpCustomException() {
         throw ServiceUnavailableHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -472,7 +472,7 @@ void main() {
       Never throwHttpCustomException() {
         throw GatewayTimeoutHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -587,7 +587,7 @@ void main() {
       Never throwHttpCustomException() {
         throw HttpVersionNotSupportedHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -702,7 +702,7 @@ void main() {
       Never throwHttpCustomException() {
         throw VariantAlsoNegotiatesHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -816,7 +816,7 @@ void main() {
       Never throwHttpCustomException() {
         throw InsufficientStorageHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -930,7 +930,7 @@ void main() {
       Never throwHttpCustomException() {
         throw LoopDetectedHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -1044,7 +1044,7 @@ void main() {
       Never throwHttpCustomException() {
         throw NotExtendedHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -1159,7 +1159,7 @@ void main() {
       Never throwHttpCustomException() {
         throw NetworkAuthenticationRequiredHttpException(
           detail: "Not found key 'foo' and 'bar' in JSON",
-          data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+          data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
           uri: Uri.parse('https://example.org'),
         );
       }
@@ -1275,7 +1275,7 @@ void main() {
     Never throwHttpCustomException() {
       throw NetworkConnectTimeoutErrorHttpException(
         detail: "Not found key 'foo' and 'bar' in JSON",
-        data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+        data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
         uri: Uri.parse('https://example.org'),
       );
     }

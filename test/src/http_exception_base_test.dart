@@ -29,7 +29,7 @@ void main() {
       throw HttpException(
         httpStatus: HttpStatus.notFound,
         message: 'Not found(Exception Test)',
-        data: <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
+        data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
         uri: Uri.parse('https://example.org'),
       );
     }

@@ -40,7 +40,7 @@ void main() {
   // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException f = NotImplementedHttpException(
-    data: <String, dynamic>{'name': 'dart', 'age': 7},
+    data: const <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://dart.dev'),
   );
@@ -48,7 +48,7 @@ void main() {
   // -> HttpException Status 501 - Not Implemented: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
   final HttpException g = BadGatewayHttpException(
-    data: <String, dynamic>{'name': 'dart', 'age': 7},
+    data: const <String, dynamic>{'name': 'dart', 'age': 7},
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://dart.dev'),
   );
@@ -58,7 +58,7 @@ void main() {
   final HttpException h = InvalidSSLCertificateHttpException(
     detail: 'Message Customized Detail Exception',
     uri: Uri.parse('http://localhost:80'),
-    data: <String, dynamic>{'id': 1, 'name': 'Dart'},
+    data: const <String, dynamic>{'id': 1, 'name': 'Dart'},
   );
   print(h);
   // -> HttpException Status 888 - InvalidSSLCertificate: Message Customized Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
