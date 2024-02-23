@@ -15,13 +15,13 @@ import '../http_exception.dart';
 class InternalServerErrorHttpException extends HttpException {
   /// {@macro 500_internal_server_error_http_exception}
   const InternalServerErrorHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.internalServerError,
           message: 'Internal Server Error${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -32,8 +32,8 @@ class NotImplementedException extends NotImplementedHttpException {
   /// {@macro 501_not_implemented_http_exception}
   @Deprecated('Use [NotImplementedHttpException] instead.')
   const NotImplementedException([
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
   ]) : super(data: data, detail: detail);
 }
 
@@ -43,13 +43,13 @@ class NotImplementedException extends NotImplementedHttpException {
 class NotImplementedHttpException extends HttpException {
   /// {@macro 501_not_implemented_http_exception}
   const NotImplementedHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.notImplemented,
           message: 'Not Implemented${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -60,13 +60,13 @@ class NotImplementedHttpException extends HttpException {
 class BadGatewayHttpException extends HttpException {
   /// {@macro 502_bad_gateway_http_exception}
   const BadGatewayHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.badGateway,
           message: 'Bad Gateway${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -77,8 +77,8 @@ class ServiceUnavailableException extends ServiceUnavailableHttpException {
   /// {@macro 503_service_unavailable_http_exception}
   @Deprecated('Use [ServiceUnavailableHttpException] instead.')
   const ServiceUnavailableException([
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
   ]) : super(data: data, detail: detail);
 }
 
@@ -88,13 +88,13 @@ class ServiceUnavailableException extends ServiceUnavailableHttpException {
 class ServiceUnavailableHttpException extends HttpException {
   /// {@macro 503_service_unavailable_http_exception}
   const ServiceUnavailableHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.serviceUnavailable,
           message: 'Service Unavailable${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -105,13 +105,13 @@ class ServiceUnavailableHttpException extends HttpException {
 class GatewayTimeoutHttpException extends HttpException {
   /// {@macro 504_gateway_timeout_http_exception}
   const GatewayTimeoutHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.gatewayTimeout,
           message: 'Gateway Timeout${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -122,14 +122,14 @@ class GatewayTimeoutHttpException extends HttpException {
 class HttpVersionNotSupportedHttpException extends HttpException {
   /// {@macro 505_http_version_not_supported_http_exception}
   const HttpVersionNotSupportedHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.httpVersionNotSupported,
           message:
               'Http Version Not Supported${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -140,13 +140,13 @@ class HttpVersionNotSupportedHttpException extends HttpException {
 class VariantAlsoNegotiatesHttpException extends HttpException {
   /// {@macro 506_variant_also_negotiates_http_exception}
   const VariantAlsoNegotiatesHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.variantAlsoNegotiates,
           message: 'Variant Also Negotiates${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -157,13 +157,13 @@ class VariantAlsoNegotiatesHttpException extends HttpException {
 class InsufficientStorageHttpException extends HttpException {
   /// {@macro 507_insufficient_storage_http_exception}
   const InsufficientStorageHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.insufficientStorage,
           message: 'Insufficient Storage${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -174,13 +174,13 @@ class InsufficientStorageHttpException extends HttpException {
 class LoopDetectedHttpException extends HttpException {
   /// {@macro 508_loop_detected_http_exception}
   const LoopDetectedHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.loopDetected,
           message: 'Loop Detected${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -191,13 +191,13 @@ class LoopDetectedHttpException extends HttpException {
 class NotExtendedHttpException extends HttpException {
   /// {@macro 510_not_extended_http_exception}
   const NotExtendedHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.notExtended,
           message: 'Not Extended${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -208,14 +208,14 @@ class NotExtendedHttpException extends HttpException {
 class NetworkAuthenticationRequiredHttpException extends HttpException {
   /// {@macro 511_network_authentication_required_http_exception}
   const NetworkAuthenticationRequiredHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.networkAuthenticationRequired,
           message:
               'Network Authentication Required${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
@@ -226,14 +226,14 @@ class NetworkAuthenticationRequiredHttpException extends HttpException {
 class NetworkConnectTimeoutErrorHttpException extends HttpException {
   /// {@macro 599_network_connect_timeout_error_http_exception}
   const NetworkConnectTimeoutErrorHttpException({
-    Map<String, dynamic>? data,
     String detail = '',
+    Map<String, dynamic>? data,
     Uri? uri,
   }) : super(
-          data: data,
           httpStatus: HttpStatus.networkConnectTimeoutError,
           message:
               'Network Connect Timeout Error${detail != '' ? ': ' : ''}$detail',
+          data: data,
           uri: uri,
         );
 }
