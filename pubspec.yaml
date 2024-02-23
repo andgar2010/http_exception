@@ -9,7 +9,7 @@ homepage: https://github.com/bwu-dart/http_exception
 #   - Andres Garcia <dev@tech-andgar.me>
 
 environment:
-  sdk: '>=2.15.0 <4.0.0'
+  sdk: '>=2.18.0 <4.0.0'
 
 dependencies:
   http_status: ^2.1.0
@@ -17,5 +17,5 @@ dependencies:
 
 dev_dependencies:
   test: ^1.17.12
-  dart_code_linter: ^1.1.2
-  lints: ^2.1.1
+  dart_code_linter: ^1.1.1
+  lints: ^2.0.1
