@@ -29,7 +29,7 @@ void main() {
   print(d);
   // -> HttpException Status 422 - Unprocessable Entity: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
-  //TODO(andgar2010): Note: 'NotImplementedException' is deprecated and shouldn't be used. Use [NotImplementedHttpException] instead.
+  // TODO(andgar2010): Note: 'NotImplementedException' is deprecated and shouldn't be used, Use [NotImplementedHttpException] instead.
 
   // ignore: deprecated_member_use_from_same_package
   const HttpException e = NotImplementedException(

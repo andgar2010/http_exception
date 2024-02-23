@@ -1,4 +1,4 @@
-# HTTP Exceptions for Dart (http_exception)
+# HTTP Exception for Dart (http_exception)
 
 <p align="center">
 
@@ -9,15 +9,15 @@
 
 </p>
 
-This package, delivers a comprehensive and customizable system for handling HTTP errors in Dart applications, providing clear, concise, and type-safe predefined exception classes, thereby enhancing error management and the developer experience.
+This package, delivers a comprehensive and customizable system for handling HTTP exception in Dart applications, providing clear, concise, and type-safe predefined exception classes, thereby enhancing error management and the developer experience.
 
 ## Problem Solved
 
 The `http_exception` package addresses the challenge of effectively handling HTTP exceptions in Dart applications. These exceptions often lack structured information, resulting in difficulties in:
 
 * **Identifying the exact error:** Generic error messages offer limited clues, making debugging and resolution time-consuming.
-* **Providing meaningful feedback to users:** Uninformative errors can alienate users and hinder their understanding of the issue.
-* **Logging and tracking errors effectively:** Without detailed information, it's hard to gather meaningful insights from error logs.
+* **Providing meaningful feedback to users:** Uninformative exception can alienate users and hinder their understanding of the issue.
+* **Logging and tracking exception effectively:** Without detailed information, it's hard to gather meaningful insights from error logs.
 * **Maintaining code clarity and organization:** Custom exception creation with string manipulation can lead to spaghetti code.
 
 Sure, let's illustrate the difference in handling HTTP exceptions with and without using a structured package like the HTTP Exceptions package. The comparison will highlight how the package simplifies error handling, making it more consistent and informative.
@@ -45,7 +45,7 @@ void getUser(int userId) {
 In this approach:
 
 * Error handling is manual and repetitive across different functions or parts of the application.
-* It's prone to errors and inconsistencies, especially as the complexity grows.
+* It's prone to exception and inconsistencies, especially as the complexity grows.
 * Lack of a structured way to include additional error information or context.
 
 ### Using the HTTP Exceptions Package
