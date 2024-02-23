@@ -12,6 +12,8 @@ import '../http_exception.dart';
 /// {@macro 400_bad_request_http_exception}
 @Deprecated('Use [BadRequestHttpException] instead.')
 class BadRequestException extends BadRequestHttpException {
+  /// {@macro 400_bad_request_http_exception}
+  @Deprecated('Use [BadRequestHttpException] instead.')
   const BadRequestException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -20,6 +22,7 @@ class BadRequestException extends BadRequestHttpException {
 /// 400 Bad Request (Http Exception).
 /// {@endtemplate}
 class BadRequestHttpException extends HttpException {
+  /// {@macro 400_bad_request_http_exception}
   const BadRequestHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -35,6 +38,8 @@ class BadRequestHttpException extends HttpException {
 /// {@macro 401_unauthorized_http_exception}
 @Deprecated('Use [UnauthorizedHttpException] instead.')
 class UnauthorizedException extends UnauthorizedHttpException {
+  /// {@macro 401_unauthorized_http_exception}
+  @Deprecated('Use [UnauthorizedHttpException] instead.')
   const UnauthorizedException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -43,6 +48,7 @@ class UnauthorizedException extends UnauthorizedHttpException {
 /// 401 Unauthorized (Http Exception).
 /// {@endtemplate}
 class UnauthorizedHttpException extends HttpException {
+  /// {@macro 401_unauthorized_http_exception}
   const UnauthorizedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -58,6 +64,8 @@ class UnauthorizedHttpException extends HttpException {
 /// {@macro 402_payment_required_http_exception}
 @Deprecated('Use [PaymentRequiredHttpException] instead.')
 class PaymentRequiredException extends PaymentRequiredHttpException {
+  /// {@macro 402_payment_required_http_exception}
+  @Deprecated('Use [PaymentRequiredHttpException] instead.')
   const PaymentRequiredException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -68,6 +76,7 @@ class PaymentRequiredException extends PaymentRequiredHttpException {
 /// 402 Payment Required (Http Exception).
 /// {@endtemplate}
 class PaymentRequiredHttpException extends HttpException {
+  /// {@macro 402_payment_required_http_exception}
   const PaymentRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -83,6 +92,8 @@ class PaymentRequiredHttpException extends HttpException {
 /// {@macro 403_forbidden_http_exception}
 @Deprecated('Use [ForbiddenHttpException] instead.')
 class ForbiddenException extends ForbiddenHttpException {
+  /// {@macro 403_forbidden_http_exception}
+  @Deprecated('Use [ForbiddenHttpException] instead.')
   const ForbiddenException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -91,6 +102,7 @@ class ForbiddenException extends ForbiddenHttpException {
 /// 403 Forbidden (Http Exception).
 /// {@endtemplate}
 class ForbiddenHttpException extends HttpException {
+  /// {@macro 403_forbidden_http_exception}
   const ForbiddenHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -106,6 +118,8 @@ class ForbiddenHttpException extends HttpException {
 /// {@macro 404_not_found_http_exception}
 @Deprecated('Use [NotFoundHttpException] instead.')
 class NotFoundException extends NotFoundHttpException {
+  /// {@macro 404_not_found_http_exception}
+  @Deprecated('Use [NotFoundHttpException] instead.')
   const NotFoundException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -114,6 +128,7 @@ class NotFoundException extends NotFoundHttpException {
 /// 404 Not Found (Http Exception).
 /// {@endtemplate}
 class NotFoundHttpException extends HttpException {
+  /// {@macro 404_not_found_http_exception}
   const NotFoundHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -129,6 +144,8 @@ class NotFoundHttpException extends HttpException {
 /// {@macro 405_method_not_allowed_http_exception}
 @Deprecated('Use [MethodNotAllowedHttpException] instead.')
 class MethodNotAllowedException extends MethodNotAllowedHttpException {
+  /// {@macro 405_method_not_allowed_http_exception}
+  @Deprecated('Use [MethodNotAllowedHttpException] instead.')
   const MethodNotAllowedException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -139,6 +156,7 @@ class MethodNotAllowedException extends MethodNotAllowedHttpException {
 /// 405 Method Not Allowed (Http Exception).
 /// {@endtemplate}
 class MethodNotAllowedHttpException extends HttpException {
+  /// {@macro 405_method_not_allowed_http_exception}
   const MethodNotAllowedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -154,6 +172,8 @@ class MethodNotAllowedHttpException extends HttpException {
 /// {@macro 406_not_acceptable_http_exception}
 @Deprecated('Use [NotAcceptableHttpException] instead.')
 class NotAcceptableException extends NotAcceptableHttpException {
+  /// {@macro 406_not_acceptable_http_exception}
+  @Deprecated('Use [NotAcceptableHttpException] instead.')
   const NotAcceptableException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -162,6 +182,7 @@ class NotAcceptableException extends NotAcceptableHttpException {
 /// 406 Not Acceptable (Http Exception).
 /// {@endtemplate}
 class NotAcceptableHttpException extends HttpException {
+  /// {@macro 406_not_acceptable_http_exception}
   const NotAcceptableHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -178,6 +199,7 @@ class NotAcceptableHttpException extends HttpException {
 /// 407 Proxy Authentication Required (Http Exception).
 /// {@endtemplate}
 class ProxyAuthenticationRequiredHttpException extends HttpException {
+  /// {@macro 407_proxy_authentication_required_http_exception}
   const ProxyAuthenticationRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -195,6 +217,7 @@ class ProxyAuthenticationRequiredHttpException extends HttpException {
 /// 408 Request Timeout (Http Exception).
 /// {@endtemplate}
 class RequestTimeoutHttpException extends HttpException {
+  /// {@macro 408_request_timeout_http_exception}
   const RequestTimeoutHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -210,6 +233,8 @@ class RequestTimeoutHttpException extends HttpException {
 /// {@macro 409_conflict_http_exception}
 @Deprecated('Use [ConflictHttpException] instead.')
 class ConflictException extends ConflictHttpException {
+  /// {@macro 409_conflict_http_exception}
+  @Deprecated('Use [ConflictHttpException] instead.')
   const ConflictException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -218,6 +243,7 @@ class ConflictException extends ConflictHttpException {
 /// 409 Conflict (Http Exception).
 /// {@endtemplate}
 class ConflictHttpException extends HttpException {
+  /// {@macro 409_conflict_http_exception}
   const ConflictHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -233,6 +259,8 @@ class ConflictHttpException extends HttpException {
 /// {@macro 410_gone_http_exception}
 @Deprecated('Use [GoneHttpException] instead.')
 class GoneException extends GoneHttpException {
+  /// {@macro 410_gone_http_exception}
+  @Deprecated('Use [GoneHttpException] instead.')
   const GoneException([Map<String, dynamic>? data, String detail = ''])
       : super(data: data, detail: detail);
 }
@@ -241,6 +269,7 @@ class GoneException extends GoneHttpException {
 /// 410 Gone (Http Exception).
 /// {@endtemplate}
 class GoneHttpException extends HttpException {
+  /// {@macro 410_gone_http_exception}
   const GoneHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -257,6 +286,7 @@ class GoneHttpException extends HttpException {
 /// 411 Length Required (Http Exception).
 /// {@endtemplate}
 class LengthRequiredHttpException extends HttpException {
+  /// {@macro 411_length_required_http_exception}
   const LengthRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -272,6 +302,8 @@ class LengthRequiredHttpException extends HttpException {
 /// {@macro 412_precondition_failed_http_exception}
 @Deprecated('Use [PreconditionFailedHttpException] instead.')
 class PreconditionFailedException extends PreconditionFailedHttpException {
+  /// {@macro 412_precondition_failed_http_exception}
+  @Deprecated('Use [PreconditionFailedHttpException] instead.')
   const PreconditionFailedException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -282,6 +314,7 @@ class PreconditionFailedException extends PreconditionFailedHttpException {
 /// 412 Precondition Failed (Http Exception).
 /// {@endtemplate}
 class PreconditionFailedHttpException extends HttpException {
+  /// {@macro 412_precondition_failed_http_exception}
   const PreconditionFailedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -298,6 +331,7 @@ class PreconditionFailedHttpException extends HttpException {
 /// 413 Request Entity Too Large (Http Exception).
 /// {@endtemplate}
 class RequestEntityTooLargeHttpException extends HttpException {
+  /// {@macro 413_request_entity_too_large_http_exception}
   const RequestEntityTooLargeHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -314,6 +348,7 @@ class RequestEntityTooLargeHttpException extends HttpException {
 /// 414 Request Uri Too Long (Http Exception).
 /// {@endtemplate}
 class RequestUriTooLongHttpException extends HttpException {
+  /// {@macro 414_request_uri_too_long_http_exception}
   const RequestUriTooLongHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -329,6 +364,8 @@ class RequestUriTooLongHttpException extends HttpException {
 /// {@macro 415_unsupported_media_type_http_exception}
 @Deprecated('Use [UnsupportedMediaTypeHttpException] instead.')
 class UnsupportedMediaTypeException extends UnsupportedMediaTypeHttpException {
+  /// {@macro 415_unsupported_media_type_http_exception}
+  @Deprecated('Use [UnsupportedMediaTypeHttpException] instead.')
   const UnsupportedMediaTypeException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -339,6 +376,7 @@ class UnsupportedMediaTypeException extends UnsupportedMediaTypeHttpException {
 /// 415 Unsupported Media Type (Http Exception).
 /// {@endtemplate}
 class UnsupportedMediaTypeHttpException extends HttpException {
+  /// {@macro 415_unsupported_media_type_http_exception}
   const UnsupportedMediaTypeHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -355,6 +393,7 @@ class UnsupportedMediaTypeHttpException extends HttpException {
 /// 416 Requested Range Not Satisfiable (Http Exception).
 /// {@endtemplate}
 class RequestedRangeNotSatisfiableHttpException extends HttpException {
+  /// {@macro 416_requested_range_not_satisfiable_http_exception}
   const RequestedRangeNotSatisfiableHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -372,6 +411,7 @@ class RequestedRangeNotSatisfiableHttpException extends HttpException {
 /// 417 Expectation Failed (Http Exception).
 /// {@endtemplate}
 class ExpectationFailedHttpException extends HttpException {
+  /// {@macro 417_expectation_failed_http_exception}
   const ExpectationFailedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -388,6 +428,7 @@ class ExpectationFailedHttpException extends HttpException {
 /// 418 I'm A Teapot (Http Exception).
 /// {@endtemplate}
 class ImATeapotHttpException extends HttpException {
+  /// {@macro 418_im_a_teapot_http_exception}
   const ImATeapotHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -404,6 +445,7 @@ class ImATeapotHttpException extends HttpException {
 /// 419 Insufficient Space On Resource (Http Exception).
 /// {@endtemplate}
 class InsufficientSpaceOnResourceHttpException extends HttpException {
+  /// {@macro 419_insufficient_space_on_resource_http_exception}
   const InsufficientSpaceOnResourceHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -421,6 +463,7 @@ class InsufficientSpaceOnResourceHttpException extends HttpException {
 /// 420 Method Failure (Http Exception).
 /// {@endtemplate}
 class MethodFailureHttpException extends HttpException {
+  /// {@macro 420_method_failure_http_exception}
   const MethodFailureHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -437,6 +480,7 @@ class MethodFailureHttpException extends HttpException {
 /// 421 Misdirected Request (Http Exception).
 /// {@endtemplate}
 class MisdirectedRequestHttpException extends HttpException {
+  /// {@macro 421_misdirected_request_http_exception}
   const MisdirectedRequestHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -453,6 +497,7 @@ class MisdirectedRequestHttpException extends HttpException {
 /// 422 Unprocessable Entity (Http Exception).
 /// {@endtemplate}
 class UnprocessableEntityHttpException extends HttpException {
+  /// {@macro 422_unprocessable_entity_http_exception}
   const UnprocessableEntityHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -469,6 +514,7 @@ class UnprocessableEntityHttpException extends HttpException {
 /// 423 Locked (Http Exception).
 /// {@endtemplate}
 class LockedHttpException extends HttpException {
+  /// {@macro 423_locked_http_exception}
   const LockedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -485,6 +531,7 @@ class LockedHttpException extends HttpException {
 /// 424 Failed Dependency (Http Exception).
 /// {@endtemplate}
 class FailedDependencyHttpException extends HttpException {
+  /// {@macro 424_failed_dependency_http_exception}
   const FailedDependencyHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -501,6 +548,7 @@ class FailedDependencyHttpException extends HttpException {
 /// 426 Upgrade Required (Http Exception).
 /// {@endtemplate}
 class UpgradeRequiredHttpException extends HttpException {
+  /// {@macro 426_upgrade_required_http_exception}
   const UpgradeRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -517,6 +565,7 @@ class UpgradeRequiredHttpException extends HttpException {
 /// 428 Precondition Required (Http Exception).
 /// {@endtemplate}
 class PreconditionRequiredHttpException extends HttpException {
+  /// {@macro 428_precondition_required_http_exception}
   const PreconditionRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -533,6 +582,7 @@ class PreconditionRequiredHttpException extends HttpException {
 /// 429 Too Many Requests (Http Exception).
 /// {@endtemplate}
 class TooManyRequestsHttpException extends HttpException {
+  /// {@macro 429_too_many_requests_http_exception}
   const TooManyRequestsHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -549,6 +599,7 @@ class TooManyRequestsHttpException extends HttpException {
 /// 431 Request Header Fields Too Large (Http Exception).
 /// {@endtemplate}
 class RequestHeaderFieldsTooLargeHttpException extends HttpException {
+  /// {@macro 431_request_header_fields_too_large_http_exception}
   const RequestHeaderFieldsTooLargeHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -566,6 +617,7 @@ class RequestHeaderFieldsTooLargeHttpException extends HttpException {
 /// 444 Connection Closed Without Response (Http Exception).
 /// {@endtemplate}
 class ConnectionClosedWithoutResponseHttpException extends HttpException {
+  /// {@macro 444_connection_closed_without_response_http_exception}
   const ConnectionClosedWithoutResponseHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -583,6 +635,7 @@ class ConnectionClosedWithoutResponseHttpException extends HttpException {
 /// 451 Unavailable For Legal Reasons (Http Exception).
 /// {@endtemplate}
 class UnavailableForLegalReasonsHttpException extends HttpException {
+  /// {@macro 451_unavailable_for_legal_reasons_http_exception}
   const UnavailableForLegalReasonsHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -600,6 +653,7 @@ class UnavailableForLegalReasonsHttpException extends HttpException {
 /// 499 Client Closed Request (Http Exception).
 /// {@endtemplate}
 class ClientClosedRequestHttpException extends HttpException {
+  /// {@macro 499_client_closed_request_http_exception}
   const ClientClosedRequestHttpException({
     Map<String, dynamic>? data,
     String detail = '',

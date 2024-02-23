@@ -13,6 +13,7 @@ import '../http_exception.dart';
 /// 500 Internal Server Error (Http Exception).
 /// {@endtemplate}
 class InternalServerErrorHttpException extends HttpException {
+  /// {@macro 500_internal_server_error_http_exception}
   const InternalServerErrorHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -28,6 +29,8 @@ class InternalServerErrorHttpException extends HttpException {
 /// {@macro 501_not_implemented_http_exception}
 @Deprecated('Use [NotImplementedHttpException] instead.')
 class NotImplementedException extends NotImplementedHttpException {
+  /// {@macro 501_not_implemented_http_exception}
+  @Deprecated('Use [NotImplementedHttpException] instead.')
   const NotImplementedException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -38,6 +41,7 @@ class NotImplementedException extends NotImplementedHttpException {
 /// 501 Not Implemented (Http Exception).
 /// {@endtemplate}
 class NotImplementedHttpException extends HttpException {
+  /// {@macro 501_not_implemented_http_exception}
   const NotImplementedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -54,6 +58,7 @@ class NotImplementedHttpException extends HttpException {
 /// 502 Bad Gateway (Http Exception).
 /// {@endtemplate}
 class BadGatewayHttpException extends HttpException {
+  /// {@macro 502_bad_gateway_http_exception}
   const BadGatewayHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -69,6 +74,8 @@ class BadGatewayHttpException extends HttpException {
 /// {@macro 503_service_unavailable_http_exception}
 @Deprecated('Use [ServiceUnavailableHttpException] instead.')
 class ServiceUnavailableException extends ServiceUnavailableHttpException {
+  /// {@macro 503_service_unavailable_http_exception}
+  @Deprecated('Use [ServiceUnavailableHttpException] instead.')
   const ServiceUnavailableException([
     Map<String, dynamic>? data,
     String detail = '',
@@ -79,6 +86,7 @@ class ServiceUnavailableException extends ServiceUnavailableHttpException {
 /// 503 Service Unavailable (Http Exception).
 /// {@endtemplate}
 class ServiceUnavailableHttpException extends HttpException {
+  /// {@macro 503_service_unavailable_http_exception}
   const ServiceUnavailableHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -95,6 +103,7 @@ class ServiceUnavailableHttpException extends HttpException {
 /// 504 Gateway Timeout (Http Exception).
 /// {@endtemplate}
 class GatewayTimeoutHttpException extends HttpException {
+  /// {@macro 504_gateway_timeout_http_exception}
   const GatewayTimeoutHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -111,6 +120,7 @@ class GatewayTimeoutHttpException extends HttpException {
 /// 505 Http Version Not Supported (Http Exception).
 /// {@endtemplate}
 class HttpVersionNotSupportedHttpException extends HttpException {
+  /// {@macro 505_http_version_not_supported_http_exception}
   const HttpVersionNotSupportedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -128,6 +138,7 @@ class HttpVersionNotSupportedHttpException extends HttpException {
 /// 506 Variant Also Negotiates (Http Exception).
 /// {@endtemplate}
 class VariantAlsoNegotiatesHttpException extends HttpException {
+  /// {@macro 506_variant_also_negotiates_http_exception}
   const VariantAlsoNegotiatesHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -144,6 +155,7 @@ class VariantAlsoNegotiatesHttpException extends HttpException {
 /// 507 Insufficient Storage (Http Exception).
 /// {@endtemplate}
 class InsufficientStorageHttpException extends HttpException {
+  /// {@macro 507_insufficient_storage_http_exception}
   const InsufficientStorageHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -160,6 +172,7 @@ class InsufficientStorageHttpException extends HttpException {
 /// 508 Loop Detected (Http Exception).
 /// {@endtemplate}
 class LoopDetectedHttpException extends HttpException {
+  /// {@macro 508_loop_detected_http_exception}
   const LoopDetectedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -176,6 +189,7 @@ class LoopDetectedHttpException extends HttpException {
 /// 511 Not Extended (Http Exception).
 /// {@endtemplate}
 class NotExtendedHttpException extends HttpException {
+  /// {@macro 510_not_extended_http_exception}
   const NotExtendedHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -192,6 +206,7 @@ class NotExtendedHttpException extends HttpException {
 /// 511 Network Authentication Required (Http Exception).
 /// {@endtemplate}
 class NetworkAuthenticationRequiredHttpException extends HttpException {
+  /// {@macro 511_network_authentication_required_http_exception}
   const NetworkAuthenticationRequiredHttpException({
     Map<String, dynamic>? data,
     String detail = '',
@@ -209,6 +224,7 @@ class NetworkAuthenticationRequiredHttpException extends HttpException {
 /// 59 Network Authentication Required (Http Exception).
 /// {@endtemplate}
 class NetworkConnectTimeoutErrorHttpException extends HttpException {
+  /// {@macro 599_network_connect_timeout_error_http_exception}
   const NetworkConnectTimeoutErrorHttpException({
     Map<String, dynamic>? data,
     String detail = '',
