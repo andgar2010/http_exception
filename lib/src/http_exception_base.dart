@@ -81,7 +81,7 @@ class HttpException implements Exception {
   @override
   String toString() {
     final StringBuffer stringBuffer = StringBuffer()
-      ..write('HttpException Status ')
+      ..write('HttpException Status Code: ')
       ..write(httpStatus.code)
       ..write(' - ')
       ..write(message.trim());

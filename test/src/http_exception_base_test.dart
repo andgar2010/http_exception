@@ -5,11 +5,11 @@ import 'package:test/test.dart';
 void main() {
   group('HttpException Class Base', () {
     const String stringDataExpect =
-        'HttpException Status 404 - Not found(Exception Test), '
+        'HttpException Status Code: 404 - Not found(Exception Test), '
         'uri = https://example.org, HTTP data = {foo: foo value, '
         'bar: bar value}';
     const String stringWithoutDataExpect =
-        'HttpException Status 404 - Not found(Exception Test)';
+        'HttpException Status Code: 404 - Not found(Exception Test)';
 
     final Map<String, Object> mapExpectData = <String, Object>{
       'httpStatusCode': 404,

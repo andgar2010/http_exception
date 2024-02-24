@@ -6,7 +6,7 @@ void main() {
   group('HTTP 4XX Exceptions', () {
     group('- 400 BadRequestHttpException', () {
       const String stringExpect =
-          "HttpException Status 400 - Bad Request: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 400 - Bad Request: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.badRequest.code;
 
@@ -119,7 +119,7 @@ void main() {
 
     group('- 401 UnauthorizedHttpException', () {
       const String stringExpect =
-          "HttpException Status 401 - Unauthorized: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 401 - Unauthorized: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.unauthorized.code;
 
@@ -233,7 +233,7 @@ void main() {
 
     group('- 402 PaymentRequiredHttpException', () {
       const String stringExpect =
-          "HttpException Status 402 - Payment Required: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 402 - Payment Required: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.paymentRequired.code;
 
@@ -347,7 +347,7 @@ void main() {
 
     group('- 403 ForbiddenHttpException', () {
       const String stringExpect =
-          "HttpException Status 403 - Forbidden: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 403 - Forbidden: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.forbidden.code;
 
@@ -460,7 +460,7 @@ void main() {
 
     group('- 404 NotFoundHttpException', () {
       const String stringExpect =
-          "HttpException Status 404 - Not Found: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 404 - Not Found: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.notFound.code;
 
@@ -570,7 +570,7 @@ void main() {
 
     group('- 405 MethodNotAllowedHttpException', () {
       const String stringExpect =
-          "HttpException Status 405 - Method Not Allowed: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: 405 - Method Not Allowed: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final int codeStatusExpect = HttpStatus.methodNotAllowed.code;
 
@@ -697,7 +697,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -812,7 +812,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -927,7 +927,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1042,7 +1042,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1156,7 +1156,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1270,7 +1270,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1385,7 +1385,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1500,7 +1500,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1615,7 +1615,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1730,7 +1730,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1845,7 +1845,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -1961,7 +1961,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2076,7 +2076,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2190,7 +2190,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2305,7 +2305,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2420,7 +2420,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2535,7 +2535,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2650,7 +2650,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2764,7 +2764,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2879,7 +2879,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -2994,7 +2994,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -3109,7 +3109,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -3224,7 +3224,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -3340,7 +3340,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -3456,7 +3456,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
@@ -3571,7 +3571,7 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException Status Code: $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
         'httpStatusCode': codeStatusExpect,
