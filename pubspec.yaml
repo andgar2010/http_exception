@@ -13,7 +13,7 @@ environment:
 
 dependencies:
   http_status: ^2.1.0
-  meta: ^1.12.0
+  meta: 1.11.0
 
 dev_dependencies:
   test: ^1.17.12
