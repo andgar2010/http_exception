@@ -18,8 +18,8 @@ linter:
     - empty_statements
     - hash_and_equals
     - invariant_booleans
-    - iterable_contains_unrelated_type
-    - list_remove_unrelated_type
+    # - iterable_contains_unrelated_type
+    # - list_remove_unrelated_type
     - literal_only_boolean_expressions
     - no_adjacent_strings_in_list
     - no_duplicate_case_values
@@ -34,7 +34,7 @@ linter:
     - always_declare_return_types
 #    - always_put_control_body_on_new_line # works against dartfmt
     - always_put_required_named_parameters_first
-    - always_require_non_null_named_parameters
+    # - always_require_non_null_named_parameters
 #    - always_specify_types
     - annotate_overrides
     - avoid_annotating_with_dynamic
@@ -53,7 +53,7 @@ linter:
 #    - avoid_private_typedef_functions # not considered a useful rule
     - avoid_renaming_method_parameters
     - avoid_return_types_on_setters
-    - avoid_returning_null
+    # - avoid_returning_null
     - avoid_returning_this
     - avoid_setters_without_getters
     - avoid_single_cascade_in_expression_statements
