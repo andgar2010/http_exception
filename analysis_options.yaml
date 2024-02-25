@@ -80,8 +80,12 @@ linter:
     - use_string_buffers
     - use_to_and_as_if_applicable
 
-
 dart_code_linter:
   extends:
     - package:dart_code_linter/presets/recommended.yaml
     - package:dart_code_linter/presets/metrics_recommended.yaml
+
+  anti-patterns:
+    - long-method:
+        exclude:
+          - lib/src/http_status_extension.dart

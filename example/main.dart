@@ -2,6 +2,9 @@
 // Use of this source code
 // is governed by a Apache-style license that can be found in the LICENSE file.
 
+  // TODO: Note: 'NotImplementedException' is deprecated and shouldn't be used, Use [NotImplementedHttpException] instead.
+// ignore_for_file: deprecated_member_use_from_same_package, no-magic-number
+
 import 'package:http_exception/http_exception.dart';
 import 'package:http_status/http_status.dart';
 
@@ -29,8 +32,6 @@ void main() {
   print(d);
   // -> HttpException [422 Unprocessable Entity]: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 
-  // TODO: Note: 'NotImplementedException' is deprecated and shouldn't be used, Use [NotImplementedHttpException] instead.
-  // ignore: deprecated_member_use_from_same_package
   const HttpException e = NotImplementedException(
     <String, dynamic>{'name': 'dart', 'age': 7},
     'Message Customized Detail Exception',
@@ -76,7 +77,7 @@ class InvalidSSLCertificateHttpException extends HttpException {
             name: 'InvalidSSLCertificate',
             description: 'InvalidSSLCertificate description',
           ),
-					detail: detail,
+          detail: detail,
           uri: uri,
         );
 }
