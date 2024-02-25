@@ -145,7 +145,7 @@ Then, run `dart pub get` or `flutter pub get` to install the package.
     final HttpException e = BadGatewayHttpException();
 
     print(e.toString());
-    // -> HttpException Status 502 - Bad Gateway
+    // -> HttpException [502 Bad Gateway]
     ```
 
 3. Additional Response Data in Body
@@ -167,7 +167,7 @@ Then, run `dart pub get` or `flutter pub get` to install the package.
     );
 
     print(e.toString());
-    // -> HttpException Status 502 - Bad Gateway: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
+    // -> HttpException [502 Bad Gateway]: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
     ```
 
 4. **Throw or handle exceptions:**
@@ -184,7 +184,7 @@ Then, run `dart pub get` or `flutter pub get` to install the package.
       validateInput('');
     } catch (e) {
       print(e.toString());
-      // Output: HTTPException Status 400 - Bad Request, HTTP data = {error: InputValidationFailed, details: Input cannot be empty.}
+      // Output: HTTPException [400 Bad Request], HTTP data = {error: InputValidationFailed, details: Input cannot be empty.}
     }
     ```
 
@@ -206,7 +206,7 @@ Then, run `dart pub get` or `flutter pub get` to install the package.
     } on HttpException catch (e) {
       // Handle the exception based on its properties (e.g., httpStatus, message, data, uri)
       print(e.toString());
-      // Example -> HttpException Status 400 - Bad Request: Validation failed, uri = https://api.example.com/register, HTTP data = {errors: ['Invalid email format','Username already exists']}
+      // Example -> HttpException [400 Bad Request]: Validation failed, uri = https://api.example.com/register, HTTP data = {errors: ['Invalid email format','Username already exists']}
       if (e.data.containsKey('errors')) {
         final errors = e.data['errors'] as List<String>;
         // Display errors to the user in a user-friendly manner
@@ -222,19 +222,19 @@ import 'package:http_exception/http_exception.dart';
 
 void main() {
   final HttpException a = HttpStatus.fromCode(422).exception();
-  print(a.toString()); // -> HTTP Status 422 - Unprocessable Entity
+  print(a.toString()); // -> HttpException [422 Unprocessable Entity]
 
   final HttpException b =
       HttpStatus.fromCode(422).exception(data: {'name': 'dart', 'age': 7});
   print(b.toString());
-  // -> HttpException Status 422 - Unprocessable Entity, HTTP data = {name: dart, age: 7}
+  // -> HttpException [422 Unprocessable Entity], HTTP data = {name: dart, age: 7}
 
   final HttpException c = HttpStatus.fromCode(422).exception(
     data: {'name': 'dart', 'age': 7},
     detail: 'Message Detail Exception',
   );
   print(c.toString());
-  // -> HttpException Status 422 - Unprocessable Entity: Message Detail Exception, HTTP data = {name: dart, age: 7}
+  // -> HttpException [422 Unprocessable Entity]: Message Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException d = HttpStatus.fromCode(422).exception(
     data: {'name': 'dart', 'age': 7},
@@ -242,7 +242,7 @@ void main() {
     uri: Uri.parse('http://dart.dev'),
   );
   print(d.toString());
-  // -> HttpException Status 422 - Unprocessable Entity: Message Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
+  // -> HttpException [422 Unprocessable Entity]: Message Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
 }
 ```
 
@@ -290,7 +290,7 @@ void main() {
     data: {'id': 1, 'name': 'Dart'},
   );
   print(myCustomException.toString());
-  // -> HttpException Status 888 - InvalidSSLCertificate: Message Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
+  // -> HttpException [888 InvalidSSLCertificate]: Message Detail Exception, uri = http://localhost, HTTP data = {id: 1, name: Dart}
 }
 ```
 

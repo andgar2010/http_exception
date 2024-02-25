@@ -5,30 +5,30 @@ import 'package:test/test.dart';
 void main() {
   group('HttpException Class Base', () {
     const String stringDataExpect =
-        'HttpException Status Code: 404 - Not found(Exception Test), '
-        'uri = https://example.org, HTTP data = {foo: foo value, '
-        'bar: bar value}';
+        'HttpException [404 Not Found]: Exception Test, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}';
     const String stringWithoutDataExpect =
-        'HttpException Status Code: 404 - Not found(Exception Test)';
+        'HttpException [404 Not Found]: Exception Test';
 
     final Map<String, Object> mapExpectData = <String, Object>{
-      'httpStatusCode': 404,
-      'message': 'Not found(Exception Test)',
-      'uri': Uri.parse('https://example.org'),
+      'statusCode': 404,
+      'name': 'Not Found',
+      'detail': 'Exception Test',
+      'uri': 'https://example.org',
       'foo': 'foo value',
       'bar': 'bar value',
     };
 
     final Map<String, Object?> mapExpect = <String, Object?>{
-      'httpStatusCode': 404,
-      'message': 'Not found(Exception Test)',
+      'statusCode': 404,
+      'name': 'Not Found',
+      'detail': 'Exception Test',
       'uri': null,
     };
 
     Never throwErrorWithData() {
       throw HttpException(
         httpStatus: HttpStatus.notFound,
-        message: 'Not found(Exception Test)',
+        detail: 'Exception Test',
         data: const <String, dynamic>{'foo': 'foo value', 'bar': 'bar value'},
         uri: Uri.parse('https://example.org'),
       );
@@ -37,7 +37,7 @@ void main() {
     Never throwErrorWithoutData() {
       throw const HttpException(
         httpStatus: HttpStatus.notFound,
-        message: 'Not found(Exception Test)',
+        detail: 'Exception Test',
       );
     }
 
@@ -116,7 +116,7 @@ void main() {
         throwsA(
           isA<HttpException>().having(
             (HttpException x) => x.httpStatus.code,
-            'httpStatusCode',
+            'statusCode',
             HttpStatus.notFound.code,
           ),
         ),

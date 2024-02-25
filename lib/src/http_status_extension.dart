@@ -319,7 +319,7 @@ extension HttpStatusExtension on HttpStatus {
     } else {
       return HttpException(
         httpStatus: this,
-        message: '$name${detail != '' ? ': ' : ''}$detail',
+        detail: detail,
         data: data,
         uri: uri,
       );
