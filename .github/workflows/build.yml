@@ -16,7 +16,6 @@ jobs:
         os: [ubuntu-latest] # or: macos-latest, windows-latest
         channel: ['2.18.0', stable, beta, dev, main] # or: 'beta', 'dev' or 'main'
 
-
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1.6.2
@@ -46,16 +45,14 @@ jobs:
           dart pub global activate coverage
           dart pub global run coverage:test_with_coverage
 
-      # - name: Check Code Coverage
-      #   uses: VeryGoodOpenSource/very_good_coverage@v2
-      #   with:
-      #     path: "./coverage/lcov.info"
-      #     min_coverage: 100
-
+      - name: Check Code Coverage
+        uses: VeryGoodOpenSource/very_good_coverage@v2
+        with:
+          path: "./coverage/lcov.info"
+          min_coverage: 89
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: coverage/lcov.info
-
