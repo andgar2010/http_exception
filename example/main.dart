@@ -2,7 +2,7 @@
 // Use of this source code
 // is governed by a Apache-style license that can be found in the LICENSE file.
 
-  // TODO: Note: 'NotImplementedException' is deprecated and shouldn't be used, Use [NotImplementedHttpException] instead.
+// TODO: Note: 'NotImplementedException' is deprecated and shouldn't be used, Use [NotImplementedHttpException] instead.
 // ignore_for_file: deprecated_member_use_from_same_package, no-magic-number
 
 import 'package:http_exception/http_exception.dart';
