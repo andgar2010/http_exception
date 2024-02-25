@@ -20,7 +20,7 @@ class InternalServerErrorHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.internalServerError,
-          message: 'Internal Server Error${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -48,7 +48,7 @@ class NotImplementedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.notImplemented,
-          message: 'Not Implemented${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -65,7 +65,7 @@ class BadGatewayHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.badGateway,
-          message: 'Bad Gateway${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -93,7 +93,7 @@ class ServiceUnavailableHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.serviceUnavailable,
-          message: 'Service Unavailable${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -110,7 +110,7 @@ class GatewayTimeoutHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.gatewayTimeout,
-          message: 'Gateway Timeout${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -127,8 +127,7 @@ class HttpVersionNotSupportedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.httpVersionNotSupported,
-          message:
-              'Http Version Not Supported${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -145,7 +144,7 @@ class VariantAlsoNegotiatesHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.variantAlsoNegotiates,
-          message: 'Variant Also Negotiates${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -162,7 +161,7 @@ class InsufficientStorageHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.insufficientStorage,
-          message: 'Insufficient Storage${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -179,7 +178,7 @@ class LoopDetectedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.loopDetected,
-          message: 'Loop Detected${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -196,7 +195,7 @@ class NotExtendedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.notExtended,
-          message: 'Not Extended${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -213,8 +212,7 @@ class NetworkAuthenticationRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.networkAuthenticationRequired,
-          message:
-              'Network Authentication Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -231,8 +229,7 @@ class NetworkConnectTimeoutErrorHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.networkConnectTimeoutError,
-          message:
-              'Network Connect Timeout Error${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );

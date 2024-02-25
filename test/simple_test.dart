@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use_from_same_package
+// ignore_for_file: deprecated_member_use_from_same_package, no-magic-number
 
 import 'package:http_exception/http_exception.dart';
 import 'package:http_status/http_status.dart';
@@ -13,9 +13,10 @@ void main() {
 
     final Map<String, dynamic> map = badRequest.toMap();
 
-    expect(map.length, 5);
-    expect(map['httpStatusCode'], HttpStatusCode.badRequest);
-    expect(map['message'], endsWith('Exception Test'));
+    expect(map.length, 6);
+    expect(map['statusCode'], HttpStatusCode.badRequest);
+    expect(map['name'], 'Bad Request');
+    expect(map['detail'], endsWith('Exception Test'));
     expect(map['foo'], 'foo value');
     expect(map['bar'], 'bar value');
   });
@@ -28,8 +29,8 @@ void main() {
 
     final Map<String, dynamic> map = badRequest.toMap();
 
-    expect(map.length, 3);
-    expect(map['httpStatusCode'], HttpStatusCode.badRequest);
-    expect(map['message'], endsWith('Exception Test'));
+    expect(map.length, 4);
+    expect(map['statusCode'], HttpStatusCode.badRequest);
+    expect(map['detail'], endsWith('Exception Test'));
   });
 }

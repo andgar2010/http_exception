@@ -4,16 +4,22 @@ import 'package:test/test.dart';
 
 void main() {
   group('HTTP 4XX Exceptions', () {
-    group('- 400 BadRequestHttpException', () {
-      const String stringExpect =
-          "HttpException Status 400 - Bad Request: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    const String stringDetailExpect = "Not found key 'foo' and 'bar' in JSON";
+    group('[400 BadRequestHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.badRequest;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<BadRequestHttpException> isAMatcher =
+          isA<BadRequestHttpException>();
 
-      final int codeStatusExpect = HttpStatus.badRequest.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Bad Request: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -29,12 +35,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(
-          throwHttpCustomException,
-          throwsA(isA<BadRequestHttpException>()),
-        );
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -67,14 +70,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<BadRequestHttpException>().having(
               (BadRequestHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -91,6 +94,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<BadRequestHttpException>().having(
+              (BadRequestHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -103,30 +118,23 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<BadRequestHttpException>().having(
-              (BadRequestHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 401 UnauthorizedHttpException', () {
-      const String stringExpect =
-          "HttpException Status 401 - Unauthorized: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    group('[401 UnauthorizedHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.unauthorized;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<UnauthorizedHttpException> isAMatcher =
+          isA<UnauthorizedHttpException>();
 
-      final int codeStatusExpect = HttpStatus.unauthorized.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Unauthorized: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -142,12 +150,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(
-          throwHttpCustomException,
-          throwsA(isA<UnauthorizedHttpException>()),
-        );
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -181,14 +186,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<UnauthorizedHttpException>().having(
               (UnauthorizedHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -205,6 +210,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<UnauthorizedHttpException>().having(
+              (UnauthorizedHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -217,30 +234,23 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<UnauthorizedHttpException>().having(
-              (UnauthorizedHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 402 PaymentRequiredHttpException', () {
-      const String stringExpect =
-          "HttpException Status 402 - Payment Required: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    group('[402 PaymentRequiredHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.paymentRequired;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<PaymentRequiredHttpException> isAMatcher =
+          isA<PaymentRequiredHttpException>();
 
-      final int codeStatusExpect = HttpStatus.paymentRequired.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Payment Required: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -256,12 +266,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(
-          throwHttpCustomException,
-          throwsA(isA<PaymentRequiredHttpException>()),
-        );
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -295,14 +302,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<PaymentRequiredHttpException>().having(
               (PaymentRequiredHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -319,6 +326,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<PaymentRequiredHttpException>().having(
+              (PaymentRequiredHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -331,30 +350,23 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<PaymentRequiredHttpException>().having(
-              (PaymentRequiredHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 403 ForbiddenHttpException', () {
-      const String stringExpect =
-          "HttpException Status 403 - Forbidden: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    group('[403 ForbiddenHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.forbidden;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<ForbiddenHttpException> isAMatcher =
+          isA<ForbiddenHttpException>();
 
-      final int codeStatusExpect = HttpStatus.forbidden.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Forbidden: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -370,12 +382,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(
-          throwHttpCustomException,
-          throwsA(isA<ForbiddenHttpException>()),
-        );
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -408,14 +417,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<ForbiddenHttpException>().having(
               (ForbiddenHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -432,6 +441,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<ForbiddenHttpException>().having(
+              (ForbiddenHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -444,30 +465,23 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<ForbiddenHttpException>().having(
-              (ForbiddenHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 404 NotFoundHttpException', () {
-      const String stringExpect =
-          "HttpException Status 404 - Not Found: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    group('[404 NotFoundHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.notFound;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<NotFoundHttpException> isAMatcher =
+          isA<NotFoundHttpException>();
 
-      final int codeStatusExpect = HttpStatus.notFound.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Not Found: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -483,9 +497,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(throwHttpCustomException, throwsA(isA<NotFoundHttpException>()));
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -518,14 +532,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<NotFoundHttpException>().having(
               (NotFoundHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -542,6 +556,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<NotFoundHttpException>().having(
+              (NotFoundHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -554,30 +580,23 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<NotFoundHttpException>().having(
-              (NotFoundHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 405 MethodNotAllowedHttpException', () {
-      const String stringExpect =
-          "HttpException Status 405 - Method Not Allowed: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+    group('[405 MethodNotAllowedHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.methodNotAllowed;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
+      final TypeMatcher<MethodNotAllowedHttpException> isAMatcher =
+          isA<MethodNotAllowedHttpException>();
 
-      final int codeStatusExpect = HttpStatus.methodNotAllowed.code;
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message': "Method Not Allowed: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -593,12 +612,9 @@ void main() {
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
-        expect(
-          throwHttpCustomException,
-          throwsA(isA<MethodNotAllowedHttpException>()),
-        );
+        expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -632,14 +648,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isA<MethodNotAllowedHttpException>().having(
               (MethodNotAllowedHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -656,6 +672,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isA<MethodNotAllowedHttpException>().having(
+              (MethodNotAllowedHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -668,25 +696,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isA<MethodNotAllowedHttpException>().having(
-              (MethodNotAllowedHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 406 NotAcceptableHttpException', () {
-      const String stringHttpExpection = 'Not Acceptable';
-      final int codeStatusExpect = HttpStatus.notAcceptable.code;
+    group('[406 NotAcceptableHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.notAcceptable;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<NotAcceptableHttpException> isAMatcher =
           isA<NotAcceptableHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw NotAcceptableHttpException(
@@ -696,24 +725,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -747,14 +764,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (NotAcceptableHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -771,6 +788,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (NotAcceptableHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -783,25 +812,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (NotAcceptableHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 407 ProxyAuthenticationRequiredHttpException', () {
-      const String stringHttpExpection = 'Proxy Authentication Required';
-      final int codeStatusExpect = HttpStatus.proxyAuthenticationRequired.code;
+    group('[407 ProxyAuthenticationRequiredHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.proxyAuthenticationRequired;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ProxyAuthenticationRequiredHttpException> isAMatcher =
           isA<ProxyAuthenticationRequiredHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ProxyAuthenticationRequiredHttpException(
@@ -811,24 +841,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -862,14 +880,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ProxyAuthenticationRequiredHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -886,6 +904,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ProxyAuthenticationRequiredHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -898,25 +928,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ProxyAuthenticationRequiredHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 408 RequestTimeoutHttpException', () {
-      const String stringHttpExpection = 'Request Timeout';
-      final int codeStatusExpect = HttpStatus.requestTimeout.code;
+    group('[408 RequestTimeoutHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.requestTimeout;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<RequestTimeoutHttpException> isAMatcher =
           isA<RequestTimeoutHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw RequestTimeoutHttpException(
@@ -926,24 +957,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -977,14 +996,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (RequestTimeoutHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1001,6 +1020,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (RequestTimeoutHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1013,25 +1044,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (RequestTimeoutHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 409 ConflictHttpException', () {
-      const String stringHttpExpection = 'Conflict';
-      final int codeStatusExpect = HttpStatus.conflict.code;
+    group('[409 ConflictHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.conflict;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ConflictHttpException> isAMatcher =
           isA<ConflictHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ConflictHttpException(
@@ -1041,24 +1073,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1091,14 +1111,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ConflictHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1115,6 +1135,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ConflictHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1127,25 +1159,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ConflictHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 410 GoneHttpException', () {
-      const String stringHttpExpection = 'Gone';
-      final int codeStatusExpect = HttpStatus.gone.code;
+    group('[410 GoneHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.gone;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<GoneHttpException> isAMatcher =
           isA<GoneHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw GoneHttpException(
@@ -1155,24 +1188,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1205,14 +1226,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (GoneHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1229,6 +1250,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (GoneHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1241,25 +1274,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (GoneHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 411 LengthRequiredHttpException', () {
-      const String stringHttpExpection = 'Length Required';
-      final int codeStatusExpect = HttpStatus.lengthRequired.code;
+    group('[411 LengthRequiredHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.lengthRequired;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<LengthRequiredHttpException> isAMatcher =
           isA<LengthRequiredHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw LengthRequiredHttpException(
@@ -1269,24 +1303,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1320,14 +1342,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (LengthRequiredHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1344,6 +1366,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (LengthRequiredHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1356,25 +1390,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (LengthRequiredHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 412 PreconditionFailedHttpException', () {
-      const String stringHttpExpection = 'Precondition Failed';
-      final int codeStatusExpect = HttpStatus.preconditionFailed.code;
+    group('[412 PreconditionFailedHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.preconditionFailed;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<PreconditionFailedHttpException> isAMatcher =
           isA<PreconditionFailedHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw PreconditionFailedHttpException(
@@ -1384,24 +1419,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1435,14 +1458,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (PreconditionFailedHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1459,6 +1482,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (PreconditionFailedHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1471,25 +1506,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (PreconditionFailedHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 413 RequestEntityTooLargeHttpException', () {
-      const String stringHttpExpection = 'Request Entity Too Long';
-      final int codeStatusExpect = HttpStatus.requestEntityTooLarge.code;
+    group('[413 RequestEntityTooLargeHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.requestEntityTooLarge;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<RequestEntityTooLargeHttpException> isAMatcher =
           isA<RequestEntityTooLargeHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw RequestEntityTooLargeHttpException(
@@ -1499,24 +1535,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1550,14 +1574,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (RequestEntityTooLargeHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1574,6 +1598,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (RequestEntityTooLargeHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1586,25 +1622,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (RequestEntityTooLargeHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 414 RequestUriTooLongHttpException', () {
-      const String stringHttpExpection = 'Request Uri Too Long';
-      final int codeStatusExpect = HttpStatus.requestUriTooLong.code;
+    group('[414 RequestUriTooLongHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.requestUriTooLong;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<RequestUriTooLongHttpException> isAMatcher =
           isA<RequestUriTooLongHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw RequestUriTooLongHttpException(
@@ -1614,24 +1651,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1665,14 +1690,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (RequestUriTooLongHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1689,6 +1714,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (RequestUriTooLongHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1701,25 +1738,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (RequestUriTooLongHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 415 UnsupportedMediaTypeHttpException', () {
-      const String stringHttpExpection = 'Unsupported Media Type';
-      final int codeStatusExpect = HttpStatus.unsupportedMediaType.code;
+    group('[415 UnsupportedMediaTypeHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.unsupportedMediaType;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<UnsupportedMediaTypeHttpException> isAMatcher =
           isA<UnsupportedMediaTypeHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw UnsupportedMediaTypeHttpException(
@@ -1729,24 +1767,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1780,14 +1806,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (UnsupportedMediaTypeHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1804,6 +1830,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (UnsupportedMediaTypeHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1816,25 +1854,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (UnsupportedMediaTypeHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 416 RequestedRangeNotSatisfiableHttpException', () {
-      const String stringHttpExpection = 'Requested Range Not Satisfiable';
-      final int codeStatusExpect = HttpStatus.requestedRangeNotSatisfiable.code;
+    group('[416 RequestedRangeNotSatisfiableHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.requestedRangeNotSatisfiable;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<RequestedRangeNotSatisfiableHttpException> isAMatcher =
           isA<RequestedRangeNotSatisfiableHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw RequestedRangeNotSatisfiableHttpException(
@@ -1844,24 +1883,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -1895,15 +1922,15 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (RequestedRangeNotSatisfiableHttpException x) =>
                   x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -1920,6 +1947,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (RequestedRangeNotSatisfiableHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -1932,25 +1971,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (RequestedRangeNotSatisfiableHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 417 ExpectationFailedHttpException', () {
-      const String stringHttpExpection = 'Expectation Failed';
-      final int codeStatusExpect = HttpStatus.expectationFailed.code;
+    group('[417 ExpectationFailedHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.expectationFailed;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ExpectationFailedHttpException> isAMatcher =
           isA<ExpectationFailedHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ExpectationFailedHttpException(
@@ -1960,24 +2000,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2011,14 +2039,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ExpectationFailedHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2035,6 +2063,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ExpectationFailedHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2047,25 +2087,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ExpectationFailedHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 418 ImATeapotHttpException', () {
-      const String stringHttpExpection = "I'm A Teapot";
-      final int codeStatusExpect = HttpStatus.imATeapot.code;
+    group('[418 ImATeapotHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.imATeapot;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ImATeapotHttpException> isAMatcher =
           isA<ImATeapotHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ImATeapotHttpException(
@@ -2075,24 +2116,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2125,14 +2154,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ImATeapotHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2149,6 +2178,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ImATeapotHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2161,25 +2202,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ImATeapotHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 419 InsufficientSpaceOnResourceHttpException', () {
-      const String stringHttpExpection = 'Insufficient Space On Resource';
-      final int codeStatusExpect = HttpStatus.insufficientSpaceOnResource.code;
+    group('[419 InsufficientSpaceOnResourceHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.insufficientSpaceOnResource;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<InsufficientSpaceOnResourceHttpException> isAMatcher =
           isA<InsufficientSpaceOnResourceHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw InsufficientSpaceOnResourceHttpException(
@@ -2189,24 +2231,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2240,14 +2270,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (InsufficientSpaceOnResourceHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2264,6 +2294,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (InsufficientSpaceOnResourceHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2276,25 +2318,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (InsufficientSpaceOnResourceHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 420 MethodFailureHttpException', () {
-      const String stringHttpExpection = 'Method Failure';
-      final int codeStatusExpect = HttpStatus.methodFailure.code;
+    group('[420 MethodFailureHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.methodFailure;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<MethodFailureHttpException> isAMatcher =
           isA<MethodFailureHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw MethodFailureHttpException(
@@ -2304,24 +2347,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2355,14 +2386,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (MethodFailureHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2379,6 +2410,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (MethodFailureHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2391,25 +2434,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (MethodFailureHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 421 MisdirectedRequestHttpException', () {
-      const String stringHttpExpection = 'Misdirected Request';
-      final int codeStatusExpect = HttpStatus.misdirectedRequest.code;
+    group('[421 MisdirectedRequestHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.misdirectedRequest;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<MisdirectedRequestHttpException> isAMatcher =
           isA<MisdirectedRequestHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw MisdirectedRequestHttpException(
@@ -2419,24 +2463,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2470,14 +2502,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (MisdirectedRequestHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2494,6 +2526,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (MisdirectedRequestHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2506,25 +2550,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (MisdirectedRequestHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 422 UnprocessableEntityHttpException', () {
-      const String stringHttpExpection = 'Unprocessable Entity';
-      final int codeStatusExpect = HttpStatus.unprocessableEntity.code;
+    group('[422 UnprocessableEntityHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.unprocessableEntity;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<UnprocessableEntityHttpException> isAMatcher =
           isA<UnprocessableEntityHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw UnprocessableEntityHttpException(
@@ -2534,24 +2579,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2585,14 +2618,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (UnprocessableEntityHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2609,6 +2642,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (UnprocessableEntityHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2621,25 +2666,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (UnprocessableEntityHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 423 LockedHttpException', () {
-      const String stringHttpExpection = 'Locked';
-      final int codeStatusExpect = HttpStatus.locked.code;
+    group('[423 LockedHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.locked;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<LockedHttpException> isAMatcher =
           isA<LockedHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw LockedHttpException(
@@ -2649,24 +2695,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2699,14 +2733,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (LockedHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2723,6 +2757,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (LockedHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2735,25 +2781,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (LockedHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 424 FailedDependencyHttpException', () {
-      const String stringHttpExpection = 'Failed Dependency';
-      final int codeStatusExpect = HttpStatus.failedDependency.code;
+    group('[424 FailedDependencyHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.failedDependency;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<FailedDependencyHttpException> isAMatcher =
           isA<FailedDependencyHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw FailedDependencyHttpException(
@@ -2763,24 +2810,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2814,14 +2849,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (FailedDependencyHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2838,6 +2873,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (FailedDependencyHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2850,25 +2897,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (FailedDependencyHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 426 UpgradeRequiredHttpException', () {
-      const String stringHttpExpection = 'Upgrade Required';
-      final int codeStatusExpect = HttpStatus.upgradeRequired.code;
+    group('[426 UpgradeRequiredHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.upgradeRequired;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<UpgradeRequiredHttpException> isAMatcher =
           isA<UpgradeRequiredHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw UpgradeRequiredHttpException(
@@ -2878,24 +2926,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -2929,14 +2965,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (UpgradeRequiredHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -2953,6 +2989,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (UpgradeRequiredHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -2965,25 +3013,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (UpgradeRequiredHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 428 PreconditionRequiredHttpException', () {
-      const String stringHttpExpection = 'Precondition Required';
-      final int codeStatusExpect = HttpStatus.preconditionRequired.code;
+    group('[428 PreconditionRequiredHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.preconditionRequired;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<PreconditionRequiredHttpException> isAMatcher =
           isA<PreconditionRequiredHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw PreconditionRequiredHttpException(
@@ -2993,24 +3042,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3044,14 +3081,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (PreconditionRequiredHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3068,6 +3105,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (PreconditionRequiredHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3080,25 +3129,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (PreconditionRequiredHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 429 TooManyRequestsHttpException', () {
-      const String stringHttpExpection = 'Too Many Requests';
-      final int codeStatusExpect = HttpStatus.tooManyRequests.code;
+    group('[429 TooManyRequestsHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.tooManyRequests;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<TooManyRequestsHttpException> isAMatcher =
           isA<TooManyRequestsHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw TooManyRequestsHttpException(
@@ -3108,24 +3158,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3159,14 +3197,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (TooManyRequestsHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3183,6 +3221,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (TooManyRequestsHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3195,25 +3245,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (TooManyRequestsHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 431 RequestHeaderFieldsTooLargeHttpException', () {
-      const String stringHttpExpection = 'Request Header Fields Too Large';
-      final int codeStatusExpect = HttpStatus.requestHeaderFieldsTooLarge.code;
+    group('[431 RequestHeaderFieldsTooLargeHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.requestHeaderFieldsTooLarge;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<RequestHeaderFieldsTooLargeHttpException> isAMatcher =
           isA<RequestHeaderFieldsTooLargeHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw RequestHeaderFieldsTooLargeHttpException(
@@ -3223,24 +3274,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3274,14 +3313,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (RequestHeaderFieldsTooLargeHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3298,6 +3337,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (RequestHeaderFieldsTooLargeHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3310,26 +3361,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (RequestHeaderFieldsTooLargeHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 444 ConnectionClosedWithoutResponseHttpException', () {
-      const String stringHttpExpection = 'Connection Closed Without Response';
-      final int codeStatusExpect =
-          HttpStatus.connectionClosedWithoutResponse.code;
+    group('[444 ConnectionClosedWithoutResponseHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.connectionClosedWithoutResponse;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ConnectionClosedWithoutResponseHttpException>
           isAMatcher = isA<ConnectionClosedWithoutResponseHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ConnectionClosedWithoutResponseHttpException(
@@ -3339,24 +3390,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3390,15 +3429,15 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ConnectionClosedWithoutResponseHttpException x) =>
                   x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3415,6 +3454,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ConnectionClosedWithoutResponseHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3427,23 +3478,11 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ConnectionClosedWithoutResponseHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 451 UnavailableForLegalReasonsHttpException', () {
-      const String stringHttpExpection = 'Unavailable For Legal Reasons';
-      final int codeStatusExpect = HttpStatus.unavailableForLegalReasons.code;
+    group('[451 UnavailableForLegalReasonsHttpException]', () {
+      const String nameHttpStatus = 'Unavailable For Legal Reasons';
+      final int codeHttpStatus = HttpStatus.unavailableForLegalReasons.code;
       final TypeMatcher<UnavailableForLegalReasonsHttpException> isAMatcher =
           isA<UnavailableForLegalReasonsHttpException>();
 
@@ -3456,13 +3495,13 @@ void main() {
       }
 
       final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
 
       final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
         'foo': 'foo value',
         'bar': 'bar value',
       };
@@ -3472,7 +3511,7 @@ void main() {
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3506,14 +3545,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (UnavailableForLegalReasonsHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3530,6 +3569,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (UnavailableForLegalReasonsHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3542,25 +3593,26 @@ void main() {
           ),
         );
       });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (UnavailableForLegalReasonsHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
-            ),
-          ),
-        );
-      });
     });
 
-    group('- 499 ClientClosedRequestHttpException', () {
-      const String stringHttpExpection = 'Client Closed Request';
-      final int codeStatusExpect = HttpStatus.clientClosedRequest.code;
+    group('[499 ClientClosedRequestHttpException]', () {
+      const HttpStatus httpStatus = HttpStatus.clientClosedRequest;
+      final int codeHttpStatus = httpStatus.code;
+      final String nameHttpStatus = httpStatus.name;
       final TypeMatcher<ClientClosedRequestHttpException> isAMatcher =
           isA<ClientClosedRequestHttpException>();
+
+      final String stringExpect =
+          "HttpException [$codeHttpStatus $nameHttpStatus]: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
+
+      final Map<String, Object> mapExpect = <String, Object>{
+        'statusCode': codeHttpStatus,
+        'name': nameHttpStatus,
+        'detail': stringDetailExpect,
+        'uri': 'https://example.org',
+        'foo': 'foo value',
+        'bar': 'bar value',
+      };
 
       Never throwHttpCustomException() {
         throw ClientClosedRequestHttpException(
@@ -3570,24 +3622,12 @@ void main() {
         );
       }
 
-      final String stringExpect =
-          "HttpException Status $codeStatusExpect - $stringHttpExpection: Not found key 'foo' and 'bar' in JSON, uri = https://example.org, HTTP data = {foo: foo value, bar: bar value}";
-
-      final Map<String, Object> mapExpect = <String, Object>{
-        'httpStatusCode': codeStatusExpect,
-        'message':
-            "$stringHttpExpection: Not found key 'foo' and 'bar' in JSON",
-        'uri': Uri.parse('https://example.org'),
-        'foo': 'foo value',
-        'bar': 'bar value',
-      };
-
       test('should throw with check type test', () {
         expect(throwHttpCustomException, throwsException);
         expect(throwHttpCustomException, throwsA(isA<HttpException>()));
         expect(throwHttpCustomException, throwsA(isAMatcher));
       });
-      test('should throw with check message test', () {
+      test('should throw with check toString() test', () {
         expect(
           throwHttpCustomException,
           throwsA(
@@ -3621,14 +3661,14 @@ void main() {
           ),
         );
       });
-      test('should throw with check status test', () {
+      test('should throw with check status code test', () {
         expect(
           throwHttpCustomException,
           throwsA(
             isAMatcher.having(
               (ClientClosedRequestHttpException x) => x.httpStatus.code,
-              'httpStatusCode',
-              codeStatusExpect,
+              'statusCode',
+              codeHttpStatus,
             ),
           ),
         );
@@ -3645,6 +3685,18 @@ void main() {
           ),
         );
       });
+      test('should throw with check detail test', () {
+        expect(
+          throwHttpCustomException,
+          throwsA(
+            isAMatcher.having(
+              (ClientClosedRequestHttpException x) => x.detail,
+              'detail',
+              stringDetailExpect,
+            ),
+          ),
+        );
+      });
       test('should throw with check toMap() test', () {
         expect(
           throwHttpCustomException,
@@ -3653,18 +3705,6 @@ void main() {
               (ClientClosedRequestHttpException x) => x.toMap(),
               'toMap()',
               mapExpect,
-            ),
-          ),
-        );
-      });
-      test('should throw with check toString() test', () {
-        expect(
-          throwHttpCustomException,
-          throwsA(
-            isAMatcher.having(
-              (ClientClosedRequestHttpException x) => x.toString(),
-              'toString()',
-              stringExpect,
             ),
           ),
         );

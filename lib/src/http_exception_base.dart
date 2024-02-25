@@ -26,7 +26,7 @@ class HttpException implements Exception {
   /// - [uri]: Optional. The URI associated with the HTTP request that resulted in this error.
   const HttpException({
     required this.httpStatus,
-    required this.message,
+    required this.detail,
     this.data,
     this.uri,
   });
@@ -50,7 +50,7 @@ class HttpException implements Exception {
   /// This message can offer additional context about what went wrong,
   /// potentially including steps to resolve the issue or a more detailed
   /// explanation of the error.
-  final String message;
+  final String detail;
 
   /// The URI associated with the HTTP request that resulted in this error.
   ///
@@ -81,10 +81,12 @@ class HttpException implements Exception {
   @override
   String toString() {
     final StringBuffer stringBuffer = StringBuffer()
-      ..write('HttpException Status ')
-      ..write(httpStatus.code)
-      ..write(' - ')
-      ..write(message.trim());
+      ..write('HttpException ')
+      ..write('[')
+      ..write('${httpStatus.code} ')
+      ..write(httpStatus.name)
+      ..write(']')
+      ..write(detail != '' ? ': ${detail.trim()}' : '');
 
     if (uri != null) {
       stringBuffer.write(', uri = $uri');
@@ -98,15 +100,16 @@ class HttpException implements Exception {
 
   /// Converts the [HttpException] instance to a [Map].
   ///
-  /// The resulting map includes keys for `httpStatusCode`, `message`, and `uri`,
+  /// The resulting map includes keys for `statusCode`, `name`, `detail`, and `uri`,
   /// alongside any additional data provided through [data].
   /// This can be useful for serializing the exception details, e.g.,
   /// sending over network or saving in logs.
   ///
   /// Returns a [Map<String, dynamic>] representation of the [HttpException].
   Map<String, dynamic> toMap() => <String, dynamic>{
-        'httpStatusCode': httpStatus.code,
-        'message': message,
+        'statusCode': httpStatus.code,
+        'name': httpStatus.name,
+        'detail': detail,
         'uri': uri?.toString(),
       }..addAll(data ?? <String, dynamic>{});
 }

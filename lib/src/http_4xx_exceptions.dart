@@ -29,7 +29,7 @@ class BadRequestHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.badRequest,
-          message: 'Bad Request${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -55,7 +55,7 @@ class UnauthorizedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.unauthorized,
-          message: 'Unauthorized${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -83,7 +83,7 @@ class PaymentRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.paymentRequired,
-          message: 'Payment Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -109,7 +109,7 @@ class ForbiddenHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.forbidden,
-          message: 'Forbidden${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -135,7 +135,7 @@ class NotFoundHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.notFound,
-          message: 'Not Found${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -163,7 +163,7 @@ class MethodNotAllowedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.methodNotAllowed,
-          message: 'Method Not Allowed${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -189,7 +189,7 @@ class NotAcceptableHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.notAcceptable,
-          message: 'Not Acceptable${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -206,8 +206,7 @@ class ProxyAuthenticationRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.proxyAuthenticationRequired,
-          message:
-              'Proxy Authentication Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -224,7 +223,7 @@ class RequestTimeoutHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.requestTimeout,
-          message: 'Request Timeout${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -250,7 +249,7 @@ class ConflictHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.conflict,
-          message: 'Conflict${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -276,7 +275,7 @@ class GoneHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.gone,
-          message: 'Gone${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -293,7 +292,7 @@ class LengthRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.lengthRequired,
-          message: 'Length Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -321,7 +320,7 @@ class PreconditionFailedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.preconditionFailed,
-          message: 'Precondition Failed${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -338,7 +337,7 @@ class RequestEntityTooLargeHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.requestEntityTooLarge,
-          message: 'Request Entity Too Long${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -355,7 +354,7 @@ class RequestUriTooLongHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.requestUriTooLong,
-          message: 'Request Uri Too Long${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -383,7 +382,7 @@ class UnsupportedMediaTypeHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.unsupportedMediaType,
-          message: 'Unsupported Media Type${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -400,8 +399,7 @@ class RequestedRangeNotSatisfiableHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.requestedRangeNotSatisfiable,
-          message:
-              'Requested Range Not Satisfiable${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -418,7 +416,7 @@ class ExpectationFailedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.expectationFailed,
-          message: 'Expectation Failed${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -435,7 +433,7 @@ class ImATeapotHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.imATeapot,
-          message: "I'm A Teapot${detail != '' ? ': ' : ''}$detail",
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -452,8 +450,7 @@ class InsufficientSpaceOnResourceHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.insufficientSpaceOnResource,
-          message:
-              'Insufficient Space On Resource${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -470,7 +467,7 @@ class MethodFailureHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.methodFailure,
-          message: 'Method Failure${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -487,7 +484,7 @@ class MisdirectedRequestHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.misdirectedRequest,
-          message: 'Misdirected Request${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -504,7 +501,7 @@ class UnprocessableEntityHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.unprocessableEntity,
-          message: 'Unprocessable Entity${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -521,7 +518,7 @@ class LockedHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.locked,
-          message: 'Locked${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -538,7 +535,7 @@ class FailedDependencyHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.failedDependency,
-          message: 'Failed Dependency${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -555,7 +552,7 @@ class UpgradeRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.upgradeRequired,
-          message: 'Upgrade Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -572,7 +569,7 @@ class PreconditionRequiredHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.preconditionRequired,
-          message: 'Precondition Required${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -589,7 +586,7 @@ class TooManyRequestsHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.tooManyRequests,
-          message: 'Too Many Requests${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -606,8 +603,7 @@ class RequestHeaderFieldsTooLargeHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.requestHeaderFieldsTooLarge,
-          message:
-              'Request Header Fields Too Large${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -624,8 +620,7 @@ class ConnectionClosedWithoutResponseHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.connectionClosedWithoutResponse,
-          message:
-              'Connection Closed Without Response${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -642,8 +637,7 @@ class UnavailableForLegalReasonsHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.unavailableForLegalReasons,
-          message:
-              'Unavailable For Legal Reasons${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
@@ -660,7 +654,7 @@ class ClientClosedRequestHttpException extends HttpException {
     Uri? uri,
   }) : super(
           httpStatus: HttpStatus.clientClosedRequest,
-          message: 'Client Closed Request${detail != '' ? ': ' : ''}$detail',
+          detail: detail,
           data: data,
           uri: uri,
         );
