@@ -5,7 +5,7 @@
 [![Star this Repo](https://img.shields.io/github/stars/andgar2010/http_exception.svg?style=flat)](https://github.com/andgar2010/http_exception)
 [![Pub Package](https://img.shields.io/pub/v/http_exception.svg?style=flat)](https://pub.dartlang.org/packages/http_exception)
 [![build Status](https://github.com/andgar2010/http_exception/actions/workflows/build.yml/badge.svg)](https://github.com/andgar2010/http_exception/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/andgar2010/http_exception/badge.svg?branch=master)](https://coveralls.io/github/andgar2010/http_exception?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/andgar2010/http_exception/badge.svg?branch=main)](https://coveralls.io/github/andgar2010/http_exception?branch=main)
 
 </p>
 
