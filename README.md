@@ -217,32 +217,65 @@ Then, run `dart pub get` or `flutter pub get` to install the package.
 ### Usage extension with package `http_status`
 
 ```dart
-import 'package:http_status/http_status.dart';
+import 'package:http/http.dart' as http;
 import 'package:http_exception/http_exception.dart';
+import 'package:http_status/http_status.dart';
 
-void main() {
+void main() async {
+  exampleHttpStatusFromCode();
+
+  await exampleHttpPost();
+}
+
+void exampleHttpStatusFromCode() {
   final HttpException a = HttpStatus.fromCode(422).exception();
-  print(a.toString()); // -> HttpException [422 Unprocessable Entity]
+  print(a); // -> HttpException [422 - Unprocessable Entity]
 
-  final HttpException b =
-      HttpStatus.fromCode(422).exception(data: {'name': 'dart', 'age': 7});
-  print(b.toString());
+  final HttpException b = HttpStatus.fromCode(422)
+      .exception(data: <String, dynamic>{'name': 'dart', 'age': 7});
+  print(b);
   // -> HttpException [422 Unprocessable Entity], HTTP data = {name: dart, age: 7}
 
   final HttpException c = HttpStatus.fromCode(422).exception(
-    data: {'name': 'dart', 'age': 7},
-    detail: 'Message Detail Exception',
+    detail: 'Message Customized Detail Exception',
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
   );
-  print(c.toString());
-  // -> HttpException [422 Unprocessable Entity]: Message Detail Exception, HTTP data = {name: dart, age: 7}
+  print(c);
+  // -> HttpException [422 Unprocessable Entity]: Message Customized Detail Exception, HTTP data = {name: dart, age: 7}
 
   final HttpException d = HttpStatus.fromCode(422).exception(
-    data: {'name': 'dart', 'age': 7},
-    detail: 'Message Detail Exception',
+    detail: 'Message Customized Detail Exception',
+    data: <String, dynamic>{'name': 'dart', 'age': 7},
     uri: Uri.parse('http://dart.dev'),
   );
-  print(d.toString());
-  // -> HttpException [422 Unprocessable Entity]: Message Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
+  print(d);
+  // -> HttpException [422 Unprocessable Entity]: Message Customized Detail Exception, uri = http://dart.dev, HTTP data = {name: dart, age: 7}
+}
+
+Future<void> exampleHttpPost() async {
+  final Uri url = Uri.https('example.com', 'whatsit/create');
+  final Map<String, String> body = <String, String>{
+    'name': 'doodle',
+    'color': 'blue',
+  };
+
+  final http.Response response = await http.post(url, body: body);
+
+  final int statusCode = response.statusCode;
+
+  // Http status code 200 - 299
+  if (statusCode.isSuccessfulHttpStatusCode) {
+    print(response.body);
+  } else {
+    // Automatically generate an HttpException based on the status code outside the 200-299 range
+    final HttpException e = statusCode.exception(
+      detail: 'Message Customized Detail Exception',
+      data: body,
+      uri: url,
+    );
+    print(e);
+    // -> HttpException [404 Not Found]: Message Customized Detail Exception, uri = https://example.com/whatsit/create, HTTP data = {name: doodle, color: blue}
+  }
 }
 ```
 

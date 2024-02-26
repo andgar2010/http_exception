@@ -1,6 +1,45 @@
 # Changelog
 
-## 2.0.0
+## [2.0.0] - 2024-02-26
+
+### Added - 2.0.0
+
+- feat(extension): Add int HTTP status extension
+  Introduced a new extension on the integer type to streamline the creation of HttpException instances based on HTTP status codes. This includes optional parameters for additional details, data payload, and URI.
+
+  ```dart
+  import 'package:http/http.dart' as http;
+  import 'package:http_exception/http_exception.dart';
+  import 'package:http_status/http_status.dart';
+
+  void main() async {
+    final Uri url = Uri.https('example.com', 'whatsit/create');
+    final Map<String, String> body = <String, String>{
+      'name': 'doodle',
+      'color': 'blue',
+    };
+
+    final http.Response response = await http.post(url, body: body);
+
+    final int statusCode = response.statusCode;
+
+    // Http status code 200 - 299
+    if (statusCode.isSuccessfulHttpStatusCode) {
+      print(response.body);
+    } else {
+      // Automatically generate an HttpException based on the status code outside the 200-299 range
+      final HttpException e = statusCode.exception(
+        detail: 'Message Customized Detail Exception',
+        data: body,
+        uri: url,
+      );
+      print(e);
+      // -> HttpException [404 Not Found]: Message Customized Detail Exception, uri = https://example.com/whatsit/create, HTTP data = {name: doodle, color: blue}
+    }
+  }
+  ```
+
+### Changed - 2.0.0
 
 - **Deprecation and Exception Handling Refinements**
   - Replaced the deprecated of all class, streamlining the approach to exception handling.
@@ -60,7 +99,7 @@
   - Updated the Dart SDK to the minimum required version 3, ensuring the project's compatibility with the latest language features and improvements.
   - Upgraded several key dependencies, including `http_status`, `test`, `dart_code_linter`, and `lints` packages, to their latest versions. This upgrade resolves potential issues with outdated dependencies and adopts the latest best practices.
 
-## 1.0.0
+## [1.0.0] - 2024-02-25
 
 - **HTTP Exception Handling:**
   - Replaced `HttpStatus` with `HttpStatusCode` for consistency and potential benefits (explore further).
