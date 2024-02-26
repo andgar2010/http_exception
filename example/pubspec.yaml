@@ -1,7 +1,8 @@
-name: http_exception
+name: example_http_exception
 version: 2.0.0
-description: A set of HTTP exceptions.
+description: Example - A set of HTTP exceptions.
 homepage: https://github.com/andgar2010/http_exception
+publish_to: none
 # authors:
 #   - Günter Zöchbauer <guenter@gzoechbauer.com>
 #   - Thomas Profelt <tom@octobyte.at>
@@ -12,8 +13,11 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  http_exception:
+    path: ../
   http_status: ^3.3.0
   meta: 1.11.0
+  http: ^1.2.1
 
 dev_dependencies:
   test: ^1.25.2

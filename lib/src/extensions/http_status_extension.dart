@@ -4,7 +4,7 @@
 
 import 'package:http_status/http_status.dart';
 
-import '../http_exception.dart';
+import '../../http_exception.dart';
 
 /// Extension on [HttpStatus] to easily convert HTTP status codes into
 /// corresponding [HttpException] instances, allowing for more descriptive and
