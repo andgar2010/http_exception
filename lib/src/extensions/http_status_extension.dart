@@ -6,6 +6,8 @@ import 'package:http_status/http_status.dart';
 
 import '../../http_exception.dart';
 
+// ignore_for_file: long-method
+
 /// Extension on [HttpStatus] to easily convert HTTP status codes into
 /// corresponding [HttpException] instances, allowing for more descriptive and
 /// granular error handling.

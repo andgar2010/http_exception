@@ -49,6 +49,7 @@ extension IntHttpStatusExtension on int {
       data: data,
       uri: uri,
     );
+
     return httpStatus;
   }
 }
