@@ -160,7 +160,8 @@
 
 ## 0.2.2
 
-- dart migrate for null-safety
+- feat: Dart migrate for null-safety
+- chore: updated configuration Github Actions
 
 ## 0.2.1
 
@@ -168,7 +169,7 @@
 
 ## 0.2.0
 
-- migrate to Dart 2
+- migrate to Dart 2 support
 - enable Travis CI
 - add badges
 
