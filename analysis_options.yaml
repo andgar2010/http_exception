@@ -87,3 +87,8 @@ dart_code_linter:
 
   rules:
     prefer-immediate-return: false
+
+  anti-patterns:
+    - long-method:
+        exclude:
+          - lib/src/http_status_extension.dart
