@@ -85,6 +85,9 @@ dart_code_linter:
     - package:dart_code_linter/presets/recommended.yaml
     - package:dart_code_linter/presets/metrics_recommended.yaml
 
+  rules:
+    prefer-immediate-return: false
+
   anti-patterns:
     - long-method:
         exclude:

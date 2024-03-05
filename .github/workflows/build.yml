@@ -40,10 +40,29 @@ jobs:
         run: dart analyze --fatal-infos
         # optionally use --fatal-warnings to stop execution if any warnings are found
 
+        # Checks for the quality and consistency of Dart code. Can be configured using analysis_options.yaml
+      - name: Analyze project source (Dart code Linter - DCL)
+        run: dart run dart_code_linter:metrics analyze .
+
+      - name: Analyze check unused files (DCL)
+        run: dart run dart_code_linter:metrics check-unused-files lib
+
+      - name: Analyze check unused l10n (DCL)
+        run: dart run dart_code_linter:metrics check-unused-l10n .
+
+      - name: Analyze check unused code (DCL)
+        run: dart run dart_code_linter:metrics check-unused-code .
+
+      - name: Analyze check unnecessary nullable (DCL)
+        run: dart run dart_code_linter:metrics check-unnecessary-nullable .
+
       - name: Run Tests
         run: |
           dart pub global activate coverage
           dart pub global run coverage:test_with_coverage
+
+      - name: Pre-publish - dry run
+        run: dart pub publish --dry-run
 
       - name: Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
@@ -56,3 +75,13 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: coverage/lcov.info
+
+      - name: 💯 Verify Pub Score
+        run: |
+          dart pub global activate pana 0.21.45
+          sudo apt-get install webp
+          PANA=$(pana . --no-warning); PANA_SCORE=$(echo $PANA | sed -n "s/.*Points: \([0-9]*\)\/\([0-9]*\)./\1\/\2/p")
+          echo "score: $PANA_SCORE"
+          IFS='/'; read -a SCORE_ARR <<< "$PANA_SCORE"; SCORE=SCORE_ARR[0]; TOTAL=SCORE_ARR[1]
+          if [ -z "$1" ]; then MINIMUM_SCORE=TOTAL; else MINIMUM_SCORE=$1; fi
+          if (( $SCORE < $MINIMUM_SCORE )); then echo "minimum score $MINIMUM_SCORE was not met!"; exit 1; fi
