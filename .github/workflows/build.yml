@@ -54,6 +54,9 @@ jobs:
           dart pub global activate coverage
           dart pub global run coverage:test_with_coverage
 
+      - name: Pre-publish - dry run
+        run: dart pub publish --dry-run
+
       - name: Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
