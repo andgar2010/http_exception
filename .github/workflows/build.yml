@@ -40,6 +40,15 @@ jobs:
         run: dart analyze --fatal-infos
         # optionally use --fatal-warnings to stop execution if any warnings are found
 
+        # Checks for the quality and consistency of Dart code. Can be configured using analysis_options.yaml
+      - name: Analyze project source (Dart code Linter)
+        run: |
+            dart run dart_code_linter:metrics analyze .
+            dart run dart_code_linter:metrics check-unused-files .
+            dart run dart_code_linter:metrics check-unused-l10n .
+            dart run dart_code_linter:metrics check-unused-code .
+            dart run dart_code_linter:metrics check-unnecessary-nullable .
+
       - name: Run Tests
         run: |
           dart pub global activate coverage
