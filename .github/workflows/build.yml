@@ -18,7 +18,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: dart-lang/setup-dart@v1.6.2
+      - name: 🎯 Setup Dart
+        uses: dart-lang/setup-dart@v1.6.2
         with:
           sdk: ${{ matrix.channel }}
 
@@ -26,51 +27,51 @@ jobs:
         name: Disabled Analytics Dart
         run: dart --disable-analytics
 
-      - name: Install dependencies
+      - name: 📦 Install Dependencies
         run: dart pub get
 
       # Verifies if the dart code is formatted well
-      - name: Verify formatting
+      - name: ✨ Verify formatting
         run: dart format --output=none --set-exit-if-changed .
         # --set-exit-if-changed stops execution if the any code is not well formatted
         # --output=none prints files which needs to be formatted
 
         # Checks for Symantic errors. Can be configured using analysis_options.yaml
-      - name: Analyze project source
+      - name: 🔍 Analyze project source
         run: dart analyze --fatal-infos
         # optionally use --fatal-warnings to stop execution if any warnings are found
 
         # Checks for the quality and consistency of Dart code. Can be configured using analysis_options.yaml
-      - name: Analyze project source (Dart code Linter - DCL)
+      - name: 🔍 Analyze project source (Dart code Linter - DCL)
         run: dart run dart_code_linter:metrics analyze .
 
-      - name: Analyze check unused files (DCL)
+      - name: 🔍 Analyze check unused files (DCL)
         run: dart run dart_code_linter:metrics check-unused-files lib
 
-      - name: Analyze check unused l10n (DCL)
+      - name: 🔍 Analyze check unused l10n (DCL)
         run: dart run dart_code_linter:metrics check-unused-l10n .
 
-      - name: Analyze check unused code (DCL)
+      - name: 🔍 Analyze check unused code (DCL)
         run: dart run dart_code_linter:metrics check-unused-code .
 
-      - name: Analyze check unnecessary nullable (DCL)
+      - name: 🔍 Analyze check unnecessary nullable (DCL)
         run: dart run dart_code_linter:metrics check-unnecessary-nullable .
 
-      - name: Run Tests
+      - name: 🧪 Run Tests
         run: |
           dart pub global activate coverage
           dart pub global run coverage:test_with_coverage
 
-      - name: Pre-publish - dry run
+      - name: 📦 Pre-publish - dry run
         run: dart pub publish --dry-run
 
-      - name: Check Code Coverage
+      - name: 📊 Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: "./coverage/lcov.info"
           min_coverage: 100
 
-      - name: Coveralls GitHub Action
+      - name: ⬆️ Upload Coverage to Coveralls
         uses: coverallsapp/github-action@v2.2.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
