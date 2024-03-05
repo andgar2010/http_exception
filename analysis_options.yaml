@@ -85,7 +85,5 @@ dart_code_linter:
     - package:dart_code_linter/presets/recommended.yaml
     - package:dart_code_linter/presets/metrics_recommended.yaml
 
-  anti-patterns:
-    - long-method:
-        exclude:
-          - lib/src/http_status_extension.dart
+  rules:
+    prefer-immediate-return: false
