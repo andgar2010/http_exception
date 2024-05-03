@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.1] - 2024-05-02
+
+### Fixed - 2.0.1
+
+Bumped http_status, meta, test, dart_code_linter versions.
+
 ## [2.0.0] - 2024-03-04
 
 ### Added - 2.0.0
