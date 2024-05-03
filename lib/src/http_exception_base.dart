@@ -19,7 +19,7 @@ class HttpException implements Exception {
   ///
   /// - [httpStatus]: The HTTP status code associated with the exception.
   ///
-  /// - [message]: A human-readable message providing more details about the error.
+  /// - [detail]: A human-readable message providing more details about the error.
   ///
   /// - [data]: Optional. Additional data about the exception. It can carry extra information pertinent to the error.
   ///
