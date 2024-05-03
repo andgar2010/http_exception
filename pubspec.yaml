@@ -1,22 +1,23 @@
 name: http_exception
-version: 2.0.1
+version: 2.0.2
 description: A set of predefined exception classes for HTTP Exception in Dart.
-homepage: https://github.com/andgar2010/http_exception
-repository: https://github.com/andgar2010/http_exception
-issue_tracker: https://github.com/andgar2010/http_exception/issues
-documentation: https://github.com/andgar2010/http_exception
+homepage: https://github.com/tech-andgar/http_exception
+repository: https://github.com/tech-andgar/http_exception
+issue_tracker: https://github.com/tech-andgar/http_exception/issues
+documentation: https://github.com/tech-andgar/http_exception
 topics: [http-exception]
 # authors:
 #   - Günter Zöchbauer <guenter@gzoechbauer.com>
 #   - Thomas Profelt <tom@octobyte.at>
 #   - Diego Perez <eazel7@gmail.com>
-#   - Andres Garcia <dev@tech-andgar.me>
+#   - Andres Garcia (TECH-ANDGAR) <dev@tech-andgar.me>
+
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  http_status: ^3.3.2
+  http_status: ^3.3.3
   meta: ^1.11.0
 
 dev_dependencies:

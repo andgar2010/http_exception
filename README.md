@@ -2,10 +2,10 @@
 
 <p align="center">
 
-[![Star this Repo](https://img.shields.io/github/stars/andgar2010/http_exception.svg?style=flat)](https://github.com/andgar2010/http_exception)
+[![Star this Repo](https://img.shields.io/github/stars/tech-andgar/http_exception.svg?style=flat)](https://github.com/tech-andgar/http_exception)
 [![Pub Package](https://img.shields.io/pub/v/http_exception.svg?style=flat)](https://pub.dartlang.org/packages/http_exception)
-[![build Status](https://github.com/andgar2010/http_exception/actions/workflows/build.yml/badge.svg)](https://github.com/andgar2010/http_exception/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/andgar2010/http_exception/badge.svg?branch=main)](https://coveralls.io/github/andgar2010/http_exception?branch=main)
+[![build Status](https://github.com/tech-andgar/http_exception/actions/workflows/build.yml/badge.svg)](https://github.com/tech-andgar/http_exception/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/tech-andgar/http_exception/badge.svg?branch=main)](https://coveralls.io/github/tech-andgar/http_exception?branch=main)
 
 </p>
 
@@ -380,9 +380,9 @@ void main() {
 
 We love contributions from the community! If you'd like to help make `http_exception` even better, here are a few ways you can contribute:
 
-* **Reporting Bugs** - If you find a bug, please report it by opening an [issue](https://github.com/andgar2010/http_exception/issues).
+* **Reporting Bugs** - If you find a bug, please report it by opening an [issue](https://github.com/tech-andgar/http_exception/issues).
 * **Suggesting Improvements** - Have an idea to improve the library? Share your suggestions through issues!
-* **Submitting Pull Requests** - We welcome pull requests. Please make sure to read our [Code of Conduct](https://github.com/andgar2010/http_exception/blob/main/CODE_OF_CONDUCT.md) and [Contributing Guide](https://github.com/andgar2010/http_exception/blob/main/CONTRIBUTING.md) before making a submission.
+* **Submitting Pull Requests** - We welcome pull requests. Please make sure to read our [Code of Conduct](https://github.com/tech-andgar/http_exception/blob/main/CODE_OF_CONDUCT.md) and [Contributing Guide](https://github.com/tech-andgar/http_exception/blob/main/CONTRIBUTING.md) before making a submission.
 
 ### Setting Up for Development
 
@@ -418,7 +418,7 @@ We're excited to review your contributions and collaborate on iterating and impr
 
 ## Thanking all Awesome Contributors :heart:
 
-[![Contributors](https://contrib.rocks/image?repo=andgar2010/http_exception)](https://github.com/andgar2010/http_exception/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=tech-andgar/http_exception)](https://github.com/tech-andgar/http_exception/graphs/contributors)
 
 Contributions of any kind are welcome!
 
@@ -430,6 +430,6 @@ Contributions of any kind are welcome!
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/andgar2010/http_exception
+[tracker]: https://github.com/tech-andgar/http_exception
 
 ---------------------------------

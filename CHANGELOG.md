@@ -1,10 +1,17 @@
 # Changelog
 
+## [2.0.2] - 2024-05-03
+
+### Fixed - 2.0.2
+
+- Updated homepage, repository, issue tracker URLs, and version number.
+
 ## [2.0.1] - 2024-05-02
 
 ### Fixed - 2.0.1
 
-Bumped http_status, meta, test, dart_code_linter versions.
+- Bumped http_status, meta, test, dart_code_linter versions.
+- Update Dart setup and code coverage action versions on workflows
 
 ## [2.0.0] - 2024-03-04
 
